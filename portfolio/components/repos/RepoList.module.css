@@ -1,0 +1,33 @@
+.repo {
+  padding: 1rem;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 2fr 1fr;
+  align-items: center;
+  justify-content: center;
+}
+
+.name {
+  grid-column: 1/1;
+  grid-row: 1/1;
+  word-break: break-all;
+}
+
+.description {
+  grid-column: 1/1;
+  grid-row: 2/3;
+  word-break: break-all;
+}
+
+.button {
+  grid-column: 2/2;
+  grid-row: 1/3;
+  height: 3rem;
+  width: 5rem;
+}
+
+@media screen and (min-width: 700px) {
+  .button {
+    height: 4rem;
+  }
+}

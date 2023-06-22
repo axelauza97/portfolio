@@ -1,0 +1,150 @@
+/* ############ Navigation ############ */
+
+.navWrap {
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  height: 5rem;
+  width: 100%;
+  background-color: black;
+  box-shadow: 0px 1px 8px #223055;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+}
+
+.nav {
+  left: -100%;
+  top: 5rem;
+  text-align: center;
+  box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100vh;
+  transition: 0.22s ease-in-out;
+}
+
+.nav.active {
+  left: 0;
+  background-color: gray;
+  background-size: cover;
+}
+
+.nav-item {
+  margin: 2.5rem 0;
+}
+
+.nav ul {
+  list-style-type: none;
+}
+
+.nav.active ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.nav ul li a {
+  display: inline-block;
+  text-decoration: none;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  color: #fff;
+  border-bottom: solid 1px rgba(255, 255, 255, 0.5);
+  transition: 0.14s ease-in-out;
+}
+
+.nav ul li a:hover {
+  color: #36bae6;
+  background: #e0e5eb;
+}
+
+.hamburger {
+  display: block;
+  cursor: pointer;
+  position: relative;
+}
+
+.bar {
+  display: block;
+  width: 1.75rem;
+  height: 0.2rem;
+  margin: 0.5rem auto;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background-color: #fff;
+}
+
+.hamburger.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(1) {
+  transform: rotate(45deg);
+  position: absolute;
+  top: 0;
+}
+
+.hamburger.active .bar:nth-child(3) {
+  transform: rotate(-45deg);
+  position: absolute;
+  top: 0;
+}
+
+@media screen and (min-width: 700px) {
+  .navWrap {
+    display: grid;
+    grid-template-columns: auto minmax(auto, 60rem);
+    justify-content: center;
+  }
+  .logo {
+    padding: 0;
+  }
+  .nav {
+    position: static;
+    height: unset;
+    background-color: none;
+  }
+  .nav.active {
+    background-color: transparent;
+  }
+  .nav ul {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 4rem;
+  }
+  .nav ul li a {
+    border-bottom: none;
+  }
+  .nav ul li a:hover {
+    background: transparent;
+  }
+  .hamburger {
+    display: none;
+    cursor: pointer;
+    position: static;
+  }
+  .nav .btn {
+    width: auto;
+    background: #13b1e7;
+    color: #fff;
+    letter-spacing: normal;
+    text-shadow: none;
+    box-shadow: none;
+  }
+  .nav.btn:hover {
+    box-shadow: inset 0 0 5px #13b1e7;
+    background-color: #223054;
+  }
+  .nav.active ul {
+    display: none;
+  }
+}
