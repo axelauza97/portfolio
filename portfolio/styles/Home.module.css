@@ -5,9 +5,12 @@
 }
 
 .container {
-  background: #e0eafc;
-  background: -webkit-linear-gradient(to right, #cfdef3, #e0eafc);
-  background: linear-gradient(to right, #cfdef3, #e0eafc);
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    97deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(0, 146, 202, 1) 50%
+  );
   text-align: center;
 }
 
@@ -17,6 +20,8 @@
   width: 12vh;
   border: 0.1rem solid gray;
   box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.5);
+  max-height: 15rem;
+  max-width: 15rem;
 }
 
 .main h1,
@@ -40,21 +45,25 @@
   padding: 0.5rem !important;
 }
 
+.video video {
+  margin: 2rem auto;
+}
+
 @media screen and (min-width: 700px) {
   .main {
-    max-width: 40rem;
+    max-width: 64rem;
     margin: auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
-    padding: 2rem 0;
+    padding: 2rem;
   }
   .repo_list {
     grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
   }
   .section {
-    padding: 2rem 0;
-    max-width: 40rem;
+    padding: 2rem;
+    max-width: 64rem;
     margin: auto;
   }
 }

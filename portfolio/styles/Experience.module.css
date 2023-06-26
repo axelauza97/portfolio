@@ -1,0 +1,23 @@
+.main {
+  width: 100%;
+  padding: 0.5rem;
+  text-shadow: 0 0.1rem 0.1rem rgba(255, 255, 255, 0.2);
+}
+
+.title {
+  background-color: #0092ca;
+  width: fit-content;
+  padding: 0.5rem;
+  border-radius: 0.9rem;
+}
+
+@media screen and (min-width: 700px) {
+  .title {
+    margin-bottom: 1rem;
+  }
+  .main {
+    padding: 2rem 0;
+    max-width: 40rem;
+    margin: auto;
+  }
+}

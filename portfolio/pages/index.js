@@ -1,11 +1,19 @@
 import Head from "next/head";
 import classes from "styles/Home.module.css";
 import hero from "public/axel.jpg";
+//import yolo from "public/yolo.mp4";
 import Image from "next/image";
 import Button from "@/components/UI/Button";
 import RepoList from "@/components/repos/RepoList";
+import useSWR from "swr";
 
 export default function Home(props) {
+  const fetcher = (...args) => fetch(...args).then((res) => res.json());
+  const { data, error, isLoading } = useSWR(
+    "https://api.github.com/users/axelauza97/repos",
+    fetcher
+  );
+
   return (
     <>
       <Head>
@@ -36,30 +44,24 @@ export default function Home(props) {
           </li>
         </ul>
         <div className={classes.repo_list}>
-          <RepoList repos={props.repos} />
+          {isLoading && <>Loading...</>}
+          {isLoading && data && data.message}
+          {!isLoading && data && !data.message && <RepoList repos={data} />}
         </div>
       </section>
-      {console.log(props.repos)}
     </>
   );
 }
-
-export async function getStaticProps() {
+/*<div className={classes.video}>
+        <video src={yolo} controls autoplay preload />
+      </div>*/
+export async function getServerSideProps() {
   const response = await fetch("https://api.github.com/users/axelauza97/repos");
 
-  if (!response.ok) {
-    throw json(
-      { message: "Could not fetch repos." },
-      {
-        status: 500,
-      }
-    );
-  } else {
-    const resData = await response.json();
-    return {
-      props: {
-        repos: resData,
-      },
-    };
-  }
+  const resData = await response.json();
+  return {
+    props: {
+      repos: resData,
+    },
+  };
 }

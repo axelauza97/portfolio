@@ -9,6 +9,13 @@
   padding: 0.5rem 0;
   border-radius: 0.5rem;
   text-shadow: 0 0 1rem rgb(255, 255, 255);
+  box-shadow: 0.1rem 0.1rem black;
+}
+
+.form_button:hover {
+  background: linear-gradient(to left, black 50%, gray 50%) right;
+  background-size: 200%;
+  transition: 0.5s ease-out;
 }
 
 .form_button:hover {

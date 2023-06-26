@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Oswald");
 article,
 aside,
 details,
@@ -8,6 +9,7 @@ header,
 hgroup,
 menu,
 nav,
+video,
 section {
   display: block;
 }
@@ -17,7 +19,7 @@ section {
   margin: 0;
   box-sizing: border-box;
   font-size: 100%;
-  font-family: "Lato", sans-serif;
+  font-family: "Oswald";
   line-height: 1.4;
 }
 
@@ -44,4 +46,9 @@ h4 {
 
 p {
   line-height: 1.4;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
 }

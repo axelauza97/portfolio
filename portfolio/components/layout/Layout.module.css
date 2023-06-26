@@ -4,8 +4,16 @@
   max-width: 40rem;
 }*/
 
+.main {
+  background-color: #222831;
+  color: white;
+}
+
 .body {
-  width: fit-content;
+  background: #222831;
+  /*width: fit-content;*/
+  /*background-color: #222831;
+  height: 100vh;*/
 }
 
 @media screen and (min-width: 700px) {
