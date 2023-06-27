@@ -37,7 +37,10 @@ function MainNavigation() {
               About
             </Link>
           </li>
-          <li onClick={closeMenu}>
+          <li
+            onClick={closeMenu}
+            className={router.pathname == "/experience" ? classes.active : ""}
+          >
             <Link className={classes.navButton} href="/experience">
               Experience
             </Link>

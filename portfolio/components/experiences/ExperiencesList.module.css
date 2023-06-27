@@ -1,93 +1,94 @@
 .experience {
-  padding: 1rem;
-  margin-top: 1.8rem;
-  display: grid;
-  gap: 0.75rem;
-  /*border: 1px solid gray;*/
-  border-radius: 1rem;
-  box-shadow: 0.1rem 0.1rem gray;
-  position: relative;
-  background: linear-gradient(-45deg, #0092ca, #0092ca, #222831, black);
-  background-size: 400% 400%;
-  animation: gradient 15s ease infinite;
+    padding: 1rem;
+    margin-top: 1.8rem;
+    display: grid;
+    gap: 0.75rem;
+    /*border: 1px solid gray;*/
+    border-radius: 1rem;
+    box-shadow: 0.1rem 0.1rem gray;
+    position: relative;
+    background: linear-gradient(-45deg, #0092ca, #0092ca, #222831, black);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
 }
 
 @keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 .occupation,
 .title {
-  text-align: center;
+    text-align: center;
 }
 
 .date {
-  position: absolute;
-  top: -0.75rem;
-  left: -0.5rem;
+    position: absolute;
+    top: -0.75rem;
+    left: -0.5rem;
 }
 
 .more {
-  position: absolute;
-  bottom: 0;
-  left: -0.5rem;
+    position: absolute;
+    bottom: 0;
+    left: -0.5rem;
 }
 
 .description {
-  text-align: justify;
+    text-align: justify;
 }
 
 .tech {
-  text-align: right;
-  font-size: 0.75rem;
+    text-align: right;
+    font-size: 0.75rem;
 }
 
 .tech ul li,
 .description ul li {
-  list-style-type: none;
+    list-style-type: none;
 }
 
 .button {
-  grid-column: 2/2;
-  grid-row: 1/3;
-  height: 3rem;
-  width: 4rem;
+    grid-column: 2/2;
+    grid-row: 1/3;
+    height: 3rem;
+    width: 4rem;
 }
 
 .container {
-  margin-bottom: 2rem;
+    margin-bottom: 2rem;
 }
 
 @media screen and (min-width: 700px) {
-  .experience {
-    /*grid-template-columns: 1fr 1fr;
+    .experience {
+        grid-template-rows: 5rem 2rem 15rem 10rem;
+        /*grid-template-columns: 1fr 1fr;
     grid-template-rows: 0.5fr 0.1fr 0.1fr;*/
-    align-items: center;
-    justify-content: center;
-    border-radius: 1rem;
-    margin: 0.5rem;
-    box-shadow: 0.1rem 0.1rem gray;
-  }
-  .experience:hover {
-    cursor: pointer;
-  }
-  .container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-    gap: 0.1rem;
-  }
-  .tech {
-    font-size: 1rem;
-  }
-  /*.title {
+        align-items: center;
+        justify-content: center;
+        border-radius: 1rem;
+        margin: 0.5rem;
+        box-shadow: 0.1rem 0.1rem gray;
+    }
+    .experience:hover {
+        cursor: pointer;
+    }
+    .container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+        gap: 0.1rem;
+    }
+    .tech {
+        font-size: 1rem;
+    }
+    /*.title {
     grid-column: 1/3;
     grid-row: 1/2;
   }

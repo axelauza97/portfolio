@@ -1,7 +1,5 @@
-import Head from "next/head";
 import classes from "styles/Home.module.css";
 import hero from "public/axel.jpg";
-//import yolo from "public/yolo.mp4";
 import Image from "next/image";
 import Button from "@/components/UI/Button";
 import RepoList from "@/components/repos/RepoList";
@@ -16,10 +14,6 @@ export default function Home(props) {
 
   return (
     <>
-      <Head>
-        <title>Full Stack Developer Axel Auza</title>
-        <meta name="description" content="Nice to meet you!" />
-      </Head>
       <div className={classes.container}>
         <section className={classes.main}>
           <Image className={classes.image} src={hero} alt="" />
@@ -52,11 +46,8 @@ export default function Home(props) {
     </>
   );
 }
-/*<div className={classes.video}>
-        <video src={yolo} controls autoplay preload />
-      </div>*/
 export async function getServerSideProps() {
-  const response = await fetch("https://api.github.com/users/axelauza97/repos");
+  const response = await fetch(process.env.API_URL);
 
   const resData = await response.json();
   return {

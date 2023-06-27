@@ -71,7 +71,7 @@ export async function getServerSideProps() {
     {
       title: "Investigation Assistant in CIDIS",
       date: "June 2019 - March 2020",
-      occupation: "Enterprise that builds IT solutions to Guayaquil StartUps",
+      occupation: "Research center in ESPOL university",
       descriptions: [
         "Django Backend creation with webpage for investigation project management.",
         "Creation of a banana dataset using multispectral cameras",
