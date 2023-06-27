@@ -16,7 +16,7 @@ function ExperiencesList(props) {
           <div className={classes.date}>{exp.date}</div>
           <div className={classes.more}>Click to see more </div>
           <div className={classes.description}>
-            <ul>
+            <ul className={classes.rocket_list}>
               {exp.descriptions
                 ? exp.descriptions.map((descp, index) => (
                     <li key={index}>{descp}</li>

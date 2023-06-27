@@ -50,9 +50,33 @@
     font-size: 0.75rem;
 }
 
-.tech ul li,
+.tech ul li {
+    list-style-type: none;
+}
+
+
+/*.tech ul li,
 .description ul li {
     list-style-type: none;
+}*/
+
+.rocket_list {
+    list-style-type: none;
+}
+
+.rocket_list li {
+    position: relative;
+    padding-left: 1.75rem;
+}
+
+.rocket_list li:before {
+    content: "\1F680";
+    /* Unicode character for rocket emoji */
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
 }
 
 .button {
@@ -68,7 +92,7 @@
 
 @media screen and (min-width: 700px) {
     .experience {
-        grid-template-rows: 5rem 2rem 15rem 10rem;
+        grid-template-rows: 5rem 2rem 18rem 10rem;
         /*grid-template-columns: 1fr 1fr;
     grid-template-rows: 0.5fr 0.1fr 0.1fr;*/
         align-items: center;
