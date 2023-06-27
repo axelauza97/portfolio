@@ -47,7 +47,7 @@ export default function Home(props) {
   );
 }
 export async function getServerSideProps() {
-  const response = await fetch(process.env.API_URL);
+  const response = await fetch("https://api.github.com/users/axelauza97/repos");
 
   const resData = await response.json();
   return {
