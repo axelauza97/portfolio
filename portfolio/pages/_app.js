@@ -4,6 +4,7 @@ import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "../utils/fontawesome"; // Path to the fontawesome.js file
 import Head from "next/head";
+import { Analytics } from "@vercel/analytics/react";
 
 config.autoAddCss = false;
 export default function App({ Component, pageProps }) {
@@ -21,6 +22,7 @@ export default function App({ Component, pageProps }) {
       </Head>
       <Layout>
         <Component {...pageProps} />
+        <Analytics />
       </Layout>
     </>
   );
