@@ -6,7 +6,8 @@
   z-index: 99;
   height: 5rem;
   width: 100%;
-  background-color: black;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(1rem);
   box-shadow: 0px 1px 8px gray;
   padding: 0 1.5rem;
   display: flex;
@@ -29,8 +30,8 @@
 
 .nav.active {
   left: 0;
-  background-color: gray;
-  background-size: cover;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(1rem);
 }
 
 .nav-item {
@@ -41,7 +42,7 @@
   list-style-type: none;
 }
 
-.nav.active ul {
+.nav ul {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -57,6 +58,11 @@
 
 .nav li.active {
   border-bottom: 0.25rem solid gray;
+}
+
+.nav .navButton {
+  display: block;
+  padding: 1.5rem;
 }
 
 .hamburger {
@@ -113,6 +119,8 @@
     justify-content: flex-end;
     align-items: center;
     gap: 4rem;
+    min-height: unset;
+    flex-direction: row;
   }
   .nav ul li a {
     border-bottom: none;
