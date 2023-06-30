@@ -13,7 +13,7 @@ function ExperiencePage(props) {
     </main>
   );
 }
-export async function getServerSideProps({ req, res }) {
+export async function getStaticProps() {
   const DUMMY_EXPERIENCES = [
     {
       title: "Full Stack Developer in Telconet",
@@ -81,10 +81,6 @@ export async function getServerSideProps({ req, res }) {
       link: "https://github.com/axelauza97/CARLA-SIMULATOR",
     },
   ];
-  res.setHeader(
-    "Cache-Control",
-    "public, s-maxage=3600, stale-while-revalidate=3600"
-  );
   return {
     props: {
       experiences: DUMMY_EXPERIENCES,

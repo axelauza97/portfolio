@@ -146,7 +146,7 @@ function AboutPage() {
 
       <section>
         <div className={classes.video}>
-          <video src={yolo} controls autoplay preload />
+          <video src={yolo} controls autoPlay preload="true" />
         </div>
       </section>
     </section>

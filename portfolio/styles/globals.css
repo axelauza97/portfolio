@@ -11,48 +11,119 @@ menu,
 nav,
 video,
 section {
-    display: block;
+  display: block;
 }
 
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-size: 100%;
-    font-family: "Oswald";
-    line-height: 1.4;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 100%;
+  font-family: "Oswald";
+  line-height: 1.4;
 }
 
 img {
-    max-width: 100%;
-    height: auto;
+  max-width: 100%;
+  height: auto;
 }
 
 h1 {
-    font-size: 2.5rem;
+  font-size: 2.5rem;
 }
 
 h2 {
-    font-size: 2rem;
+  font-size: 2rem;
 }
 
 h3 {
-    font-size: 1.6rem;
+  font-size: 1.6rem;
 }
 
 h4 {
-    font-size: 1.4rem;
+  font-size: 1.4rem;
 }
 
 p {
-    line-height: 1.4;
+  line-height: 1.4;
 }
 
 a {
-    color: inherit;
-    text-decoration: inherit;
+  color: inherit;
+  text-decoration: inherit;
 }
 
 html {
-    background-color: #222831;
+  background-color: #222831;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  /* overflow: hidden;*/
+  margin-bottom: 5rem;
+}
+
+.scene {
+  width: 90%;
+  height: 80vh;
+  perspective: 1000rem;
+}
+
+.scene .carousel.keen-slider {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: visible;
+  transform: translateZ(-288px);
+  transform-style: preserve-3d;
+}
+
+.carousel__cell {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  height: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.number-slide1 {
+  transform: rotateY(0deg) translateZ(300px) !important;
+}
+
+.number-slide2 {
+  transform: rotateY(90deg) translateZ(300px) !important;
+}
+
+.number-slide3 {
+  transform: rotateY(180deg) translateZ(300px) !important;
+}
+
+.number-slide4 {
+  transform: rotateY(270deg) translateZ(300px) !important;
+}
+
+@media screen and (min-width: 700px) {
+  .wrapper {
+    overflow: visible;
+  }
+  .scene {
+    height: 50rem;
+    perspective: 1000px;
+  }
+  .carousel__cell {
+    left: 10px;
+  }
+  .number-slide1 {
+    transform: rotateY(0deg) translateZ(600px) !important;
+  }
+  .number-slide2 {
+    transform: rotateY(90deg) translateZ(600px) !important;
+  }
+  .number-slide3 {
+    transform: rotateY(180deg) translateZ(600px) !important;
+  }
+  .number-slide4 {
+    transform: rotateY(270deg) translateZ(600px) !important;
+  }
 }

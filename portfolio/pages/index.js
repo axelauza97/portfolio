@@ -46,17 +46,13 @@ export default function Home(props) {
     </>
   );
 }
-export async function getServerSideProps({ req, res }) {
+export async function getStaticProps() {
   const response = await fetch("https://api.github.com/users/axelauza97/repos");
-
   const resData = await response.json();
-  res.setHeader(
-    "Cache-Control",
-    "public, s-maxage=3600, stale-while-revalidate=3600"
-  );
   return {
     props: {
       repos: resData,
     },
+    revalidate: 17280,
   };
 }
