@@ -20,6 +20,10 @@
   font-size: 1.1rem;
 }
 
+.grid_main {
+  padding-top: 5rem;
+}
+
 .grid_main section p,
 .degree p {
   padding-top: 1rem;
@@ -70,6 +74,17 @@
 .video video {
   margin: 2rem auto;
   width: 100%;
+}
+
+.reveal {
+  transform: translateY(150px);
+  opacity: 0;
+  transition: 2s all ease;
+}
+
+.reveal.active {
+  transform: translateY(0);
+  opacity: 1;
 }
 
 @media screen and (min-width: 700px) {

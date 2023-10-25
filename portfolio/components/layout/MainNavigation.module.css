@@ -1,7 +1,7 @@
 /* ############ Navigation ############ */
 
 .navWrap {
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 99;
   height: 5rem;

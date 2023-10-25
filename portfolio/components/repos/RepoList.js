@@ -3,9 +3,13 @@ import classes from "./RepoList.module.css";
 import Button from "../UI/Button";
 
 function RepoList(props) {
+  console.log(props);
+  const { repos } = props;
+  const filterRepos = repos.filter((repo) => repo.description != null);
+  console.log(filterRepos);
   return (
     <Fragment>
-      {props.repos.map((git) => (
+      {filterRepos.map((git) => (
         <div key={git.id} className={classes.repo}>
           <h4 className={classes.name}>{git.name}</h4>
           <div className={classes.description}>

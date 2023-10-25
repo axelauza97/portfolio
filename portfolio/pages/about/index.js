@@ -2,12 +2,19 @@ import classes from "styles/About.module.css";
 import { FontAwesomeIcon } from "../../utils/fontawesome";
 import Button from "@/components/UI/Button";
 import yolo from "public/yolo.mp4";
+import { useEffect } from "react";
+import { useReveal } from "@/hooks/useReveal";
 function AboutPage() {
+  useEffect(() => {
+    const { reveal } = useReveal({ document, classes, window });
+    window.addEventListener("scroll", reveal);
+    reveal();
+  }, []);
   return (
     <section className={classes.main}>
       <article className={classes.grid_main}>
         <section className={classes.about}>
-          <h1 className={classes.title}>About Me</h1>
+          <h1 className={classes.title}>Goal</h1>
           <p>
             My professional goal is to deliver well structure code that makes
             people life easier or speed up tasks, also I like to improve my
@@ -15,14 +22,14 @@ function AboutPage() {
           </p>
         </section>
 
-        <section className={classes.contact}>
+        <section className={`${classes.contact}  ${classes.reveal}`}>
           <h3 className={classes.title}>Contact</h3>
           <p>
             For any questions or information, send a mail and I'll get in touch.
           </p>
           <div>axelauza97@hotmail.com</div>
         </section>
-        <section className={classes.open}>
+        <section className={`${classes.open} ${classes.reveal}`}>
           <h3 className={classes.title}>Open to work</h3>
           <p>
             I'm looking for a job currently, If you see me as a good candidate,
@@ -41,7 +48,7 @@ function AboutPage() {
           </div>
         </section>
 
-        <section className={classes.stack}>
+        <section className={`${classes.stack} ${classes.reveal}`}>
           <h3 className={classes.title}>Tech Stack</h3>
           <div className={classes.container}>
             <div>
@@ -100,7 +107,7 @@ function AboutPage() {
           </div>
         </section>
       </article>
-      <section className={classes.degree}>
+      <section className={`${classes.degree} ${classes.reveal}`}>
         <h3 className={classes.title}>Degree</h3>
         <div className={classes.university}>
           <p>
@@ -121,7 +128,7 @@ function AboutPage() {
         </div>
       </section>
 
-      <section className={classes.degree}>
+      <section className={`${classes.degree} ${classes.reveal}`}>
         <h3 className={classes.title}>Results of my thesis</h3>
         <div className={classes.university}>
           <p>
