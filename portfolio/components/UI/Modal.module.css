@@ -1,0 +1,72 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(0.5rem);
+  z-index: 999;
+  display: grid;
+  place-content: center;
+}
+
+.box {
+  max-height: 25rem;
+  width: 80vw;
+  max-width: 25rem;
+  position: relative;
+  display: grid;
+  grid-template-rows: 0.25fr auto 1fr auto;
+  gap: 1rem;
+  animation: show 0.75s cubic-bezier(0.68, 0.01, 0.6, 1.49) both;
+}
+
+@keyframes show {
+  from {
+    scale: 0;
+  }
+  to {
+    scale: 1;
+  }
+}
+
+.close {
+  position: absolute;
+  font-weight: bolder;
+  top: 0;
+  right: 0;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  grid-row: 1/2;
+}
+
+.modalTitle {
+  grid-row: 2/3;
+}
+
+.inputSection {
+  grid-row: 3/4;
+}
+
+.modalSubmit {
+  grid-row: 4/5;
+}
+
+.contactInput {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.5rem 0;
+}
+
+.contactInput > input,
+.modalTextArea {
+  width: 80% !important;
+}
+
+@media screen and (min-width: 700px) {
+  .box {
+    padding: 1rem;
+  }
+}

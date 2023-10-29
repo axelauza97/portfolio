@@ -1,12 +1,13 @@
 .main {
   width: 100%;
-  padding: 6rem 0.5rem 0.5rem 0.5rem;
+  padding: 5rem 0.5rem 0.5rem 0.5rem;
   min-height: 100vh;
   display: grid;
   justify-items: center;
   align-items: center;
-  grid-template-rows: 1rem auto auto auto 1fr;
+  grid-template-rows: 0rem auto auto auto 1fr;
   gap: 1rem;
+  position: relative;
 }
 
 .section {
@@ -37,6 +38,11 @@
 
 .profession {
   grid-row: 3/4;
+}
+
+.profession > h1,
+.profession > h3 {
+  margin: 0;
 }
 
 .main h1,
@@ -82,7 +88,7 @@
 
 .rocketImage {
   position: absolute;
-  bottom: 4rem;
+  bottom: 6rem;
   height: 3rem;
   animation: bounce 2s ease-out infinite;
 }
@@ -99,6 +105,7 @@
 
 @media screen and (min-width: 700px) {
   .main {
+    padding: 6rem 0.5rem 0.5rem 0.5rem;
     max-width: 64rem;
     margin: auto;
     display: grid;
@@ -118,6 +125,10 @@
   .image {
     grid-row: 2/3;
     grid-column: 2/3;
+    max-height: 14vh;
+    max-width: 14vh;
+    height: 14vh;
+    width: 14vh;
   }
   .profession {
     grid-row: 2/3;
@@ -130,7 +141,7 @@
     font-size: 1.5rem;
   }
   .rocketImage {
-    bottom: 5rem;
+    bottom: 4rem;
     height: 4rem;
   }
 }

@@ -2,9 +2,16 @@ import classes from "styles/About.module.css";
 import { FontAwesomeIcon } from "../../utils/fontawesome";
 import Button from "@/components/UI/Button";
 import yolo from "public/yolo.mp4";
-import { useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useReveal } from "@/hooks/useReveal";
+import { Modal } from "@/components/UI/Modal";
+import { ModalContext } from "@/context/modal";
+import { Loader } from "@/components/UI/Loader";
+import { LoaderContext } from "@/context/loader";
 function AboutPage() {
+  const { showModal, setShowModal } = useContext(ModalContext);
+  const { isLoading, setIsLoading } = useContext(LoaderContext);
+
   useEffect(() => {
     const { reveal } = useReveal({ document, classes, window });
     window.addEventListener("scroll", reveal);
@@ -12,6 +19,9 @@ function AboutPage() {
   }, []);
   return (
     <section className={classes.main}>
+      {showModal ? <Modal /> : ""}
+      {isLoading.isLoading ? <Loader /> : ""}
+
       <article className={classes.grid_main}>
         <section className={classes.about}>
           <h1 className={classes.title}>Goal</h1>
@@ -28,6 +38,11 @@ function AboutPage() {
             For any questions or information, send a mail and I'll get in touch.
           </p>
           <div>axelauza97@hotmail.com</div>
+          <div className={classes.button}>
+            <Button onClick={() => setShowModal((prev) => !prev)}>
+              Send Email
+            </Button>
+          </div>
         </section>
         <section className={`${classes.open} ${classes.reveal}`}>
           <h3 className={classes.title}>Open to work</h3>
@@ -153,7 +168,7 @@ function AboutPage() {
 
       <section>
         <div className={classes.video}>
-          <video src={yolo} controls autoPlay preload="true" />
+          <video src={yolo} controls preload="true" />
         </div>
       </section>
     </section>

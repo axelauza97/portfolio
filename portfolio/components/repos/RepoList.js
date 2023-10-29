@@ -3,10 +3,8 @@ import classes from "./RepoList.module.css";
 import Button from "../UI/Button";
 
 function RepoList(props) {
-  console.log(props);
   const { repos } = props;
   const filterRepos = repos.filter((repo) => repo.description != null);
-  console.log(filterRepos);
   return (
     <Fragment>
       {filterRepos.map((git) => (
