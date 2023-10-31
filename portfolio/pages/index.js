@@ -4,10 +4,17 @@ import Image from "next/image";
 import Button from "@/components/UI/Button";
 import RepoList from "@/components/repos/RepoList";
 //import responseData from "@/mocks/response.json";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import rocket from "public/rocket.svg";
 import { useReveal } from "@/hooks/useReveal";
+import { ModalContext } from "@/context/modal";
+import { LoaderContext } from "@/context/loader";
+import { Modal } from "@/components/UI/Modal";
+import { Loader } from "@/components/UI/Loader";
 export default function Home(props) {
+  const { showModal, setShowModal } = useContext(ModalContext);
+  const { isLoading, setIsLoading } = useContext(LoaderContext);
+
   useEffect(() => {
     const { reveal } = useReveal({ document, classes, window });
     window.addEventListener("scroll", reveal);
@@ -31,6 +38,13 @@ export default function Home(props) {
           </p>
           <Image src={rocket} alt="rocket" className={classes.rocketImage} />
         </section>
+      </div>
+      {showModal ? <Modal /> : ""}
+      {isLoading.isLoading ? <Loader /> : ""}
+      <div className={classes.contactButton}>
+        <Button onClick={() => setShowModal((prev) => !prev)}>
+          Contact me!
+        </Button>
       </div>
       <section className={`${classes.section} ${classes.reveal}`}>
         <ul>

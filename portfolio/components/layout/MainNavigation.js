@@ -22,8 +22,8 @@ function MainNavigation() {
     <header className={classes.navWrap}>
       <div>
         <Link className={classes.navButton} href="/" onClick={closeMenu}>
-          <div>Axel Auza A</div>
-          <div>Software Engineer</div>
+          Axel Auza A<br />
+          Software Engineer
         </Link>
       </div>
 
