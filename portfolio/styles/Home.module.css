@@ -91,6 +91,7 @@
   bottom: 6rem;
   height: 3rem;
   animation: bounce 2s ease-out infinite;
+  filter: drop-shadow(2px 4px 6px black);
 }
 
 @keyframes bounce {

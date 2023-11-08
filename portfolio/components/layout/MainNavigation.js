@@ -1,11 +1,13 @@
 import Link from "next/link";
 
 import classes from "./MainNavigation.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import { disableScroll, enableScroll } from "@/utils/scroll";
 
 function MainNavigation() {
   const [menu, setMenu] = useState("");
+  const router = useRouter();
   const onMenuToggle = (event) => {
     if (menu === classes.active) {
       setMenu("");
@@ -13,11 +15,16 @@ function MainNavigation() {
       setMenu(classes.active);
     }
   };
-  const router = useRouter();
-
   const closeMenu = (event) => {
     setMenu("");
   };
+  useEffect(() => {
+    if (menu === classes.active) {
+      disableScroll();
+    } else {
+      enableScroll();
+    }
+  }, [menu, setMenu]);
   return (
     <header className={classes.navWrap}>
       <div>

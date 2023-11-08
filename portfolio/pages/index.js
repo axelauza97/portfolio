@@ -11,6 +11,7 @@ import { ModalContext } from "@/context/modal";
 import { LoaderContext } from "@/context/loader";
 import { Modal } from "@/components/UI/Modal";
 import { Loader } from "@/components/UI/Loader";
+import { disableScroll, enableScroll } from "@/utils/scroll";
 export default function Home(props) {
   const { showModal, setShowModal } = useContext(ModalContext);
   const { isLoading, setIsLoading } = useContext(LoaderContext);
@@ -20,6 +21,14 @@ export default function Home(props) {
     window.addEventListener("scroll", reveal);
     reveal();
   }, []);
+
+  useEffect(() => {
+    if (showModal) {
+      disableScroll();
+    } else {
+      enableScroll();
+    }
+  }, [showModal, setShowModal]);
   return (
     <>
       <div className={classes.container}>
@@ -30,11 +39,10 @@ export default function Home(props) {
             <h3>Guayaquil-Ecuador</h3>
           </div>
           <p className={classes.mainDescription}>
-            I am a person who loves to create, simplify and innovate new things,
-            always seeking to be and make greater things. Also I have been
-            assistant since 2017 until 2020 on my university, so I have
-            experience in work and soft skills, surrounding me with teachers and
-            other students duties.
+            Dedicated full-stack developer with a strong passion for crafting
+            innovative web applications. I specialize in React and Django,
+            combining the power of both to build robust and user-friendly
+            software solutions.
           </p>
           <Image src={rocket} alt="rocket" className={classes.rocketImage} />
         </section>
