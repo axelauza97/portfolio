@@ -1,6 +1,6 @@
 .main {
   width: 100%;
-  padding: 5rem 0.5rem 0.5rem 0.5rem;
+  padding: 0rem 0.5rem 0.5rem 0.5rem;
   text-shadow: 0 0.1rem 0.1rem rgba(255, 255, 255, 0.2);
 }
 
@@ -17,7 +17,6 @@
   }
   .main {
     padding: 2rem 0;
-    padding-top: 7rem;
     max-width: 40rem;
     margin: auto;
   }

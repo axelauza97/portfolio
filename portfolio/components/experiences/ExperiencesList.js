@@ -10,6 +10,7 @@ const carousel = (slider) => {
   function rotate() {
     const deg = 360 * slider.track.details.progress;
     slider.container.style.transform = `translateZ(-${z}px) rotateY(${-deg}deg)`;
+    console.log("chas");
   }
 
   let timeout;

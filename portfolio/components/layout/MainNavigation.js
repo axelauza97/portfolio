@@ -27,12 +27,9 @@ function MainNavigation() {
   }, [menu, setMenu]);
   return (
     <header className={classes.navWrap}>
-      <div>
-        <Link className={classes.navButton} href="/" onClick={closeMenu}>
-          Axel Auza A<br />
-          Software Engineer
-        </Link>
-      </div>
+      <Link className={`${classes.navButton}`} href="/" onClick={closeMenu}>
+        <p>Axel Auza A</p> <p>Software Engineer</p>
+      </Link>
 
       <nav className={`${classes.nav} ${menu}`}>
         <ul>

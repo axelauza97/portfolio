@@ -25,7 +25,7 @@
 
 @keyframes show {
   from {
-    scale: 0;
+    scale: 0.9;
   }
   to {
     scale: 1;

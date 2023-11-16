@@ -1,11 +1,11 @@
 .main {
   width: 100%;
-  padding: 5rem 0.5rem 0.5rem 0.5rem;
-  min-height: 100vh;
+  padding: 0rem 0.5rem 0.5rem 0.5rem;
+  min-height: 90vh;
   display: grid;
   justify-items: center;
   align-items: center;
-  grid-template-rows: 0rem auto auto auto 1fr;
+  grid-template-rows: 3rem auto auto auto 1fr;
   gap: 1rem;
   position: relative;
 }
@@ -115,7 +115,7 @@
 
 @media screen and (min-width: 700px) {
   .main {
-    padding: 6rem 0.5rem 0.5rem 0.5rem;
+    padding: 0rem 0.5rem 0.5rem 0.5rem;
     max-width: 64rem;
     margin: auto;
     display: grid;
