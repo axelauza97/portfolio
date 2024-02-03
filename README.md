@@ -6,4 +6,8 @@ Get more details about me and some projects I have been involved in
 
 ```bash
 npm run dev
+# or
+yarn dev
+# or
+pnpm dev
 ```

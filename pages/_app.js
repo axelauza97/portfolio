@@ -21,6 +21,10 @@ export default function App({ Component, pageProps }) {
             people life easier or speed up tasks, also I like to improve my
             abilities everyday pushing myself in new projects.!"
         />
+        <meta
+          name="keywords"
+          content="Axel Auza, Next.js, Tailwind, FrontEnd, FullStack"
+        />
         <link
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css"

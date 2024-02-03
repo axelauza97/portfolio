@@ -9,7 +9,7 @@
   border-radius: 1rem;
   margin: 0.5rem;
   box-shadow: 0.1rem 0.1rem gray;
-  transition: 2s all ease-out;
+  transition: 0.5s all ease-out;
   background: linear-gradient(to left, rgba(0, 146, 202, 1) 50%, #222831 50%)
     left;
   background-size: 200%;
@@ -19,7 +19,7 @@
   background: linear-gradient(to left, rgba(0, 146, 202, 1) 50%, #222831 50%)
     right;
   background-size: 200%;
-  scale: 1.1;
+  scale: 1;
 }
 
 .name {
@@ -44,5 +44,8 @@
 @media screen and (min-width: 700px) {
   .button {
     height: 4rem;
+  }
+  .repo:hover {
+    scale: 1.1;
   }
 }
