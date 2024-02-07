@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-
 export const useReveal = ({ document, classes, window }) => {
   const reveal = () => {
     var reveals = document.querySelectorAll("." + classes.reveal);

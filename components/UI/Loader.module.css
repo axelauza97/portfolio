@@ -36,13 +36,11 @@
 
 @keyframes fillBar {
   from {
-    background: linear-gradient(to left, rgba(0, 146, 202, 1) 50%, #222831 50%)
-      right;
+    background: linear-gradient(to left, rgba(0, 146, 202, 1) 50%, #222831 50%) right;
     background-size: 200%;
   }
   to {
-    background: linear-gradient(to left, rgba(0, 146, 202, 1) 50%, #222831 50%)
-      left;
+    background: linear-gradient(to left, rgba(0, 146, 202, 1) 50%, #222831 50%) left;
     background-size: 200%;
   }
 }

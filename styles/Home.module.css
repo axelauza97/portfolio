@@ -8,6 +8,7 @@
   grid-template-rows: 3rem auto auto auto 1fr;
   gap: 1rem;
   position: relative;
+  z-index: 1;
 }
 
 .section {
@@ -17,12 +18,16 @@
 
 .container {
   background: rgb(2, 0, 36);
-  background: linear-gradient(
-    97deg,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(0, 146, 202, 1) 50%
-  );
+  background: linear-gradient(97deg, rgba(2, 0, 36, 1) 0%, rgba(0, 146, 202, 1) 50%);
   text-align: center;
+}
+
+.containerSvg {
+  position: relative;
+  top: -1rem;
+  left: 0;
+  right: 0;
+  z-index: 0;
 }
 
 .image {
@@ -62,7 +67,7 @@
   display: grid;
 }
 
-.section ul {
+.projects {
   list-style: none;
   display: flex;
   justify-content: space-around;
