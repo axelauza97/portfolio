@@ -1,7 +1,5 @@
-import { Fragment, useEffect, useRef } from "react";
 import classes from "./ExperiencesList.module.css";
 import "keen-slider/keen-slider.min.css";
-import KeenSlider from "keen-slider";
 import { useKeenSlider } from "keen-slider/react";
 
 const carousel = (slider) => {

@@ -1,7 +1,7 @@
-import classes from 'styles/Experience.module.css';
-import { FontAwesomeIcon } from '../../utils/fontawesome';
-import Button from '@/components/UI/Button';
-import ExperiencesList from '@/components/experiences/ExperiencesList';
+import classes from "styles/Experience.module.css";
+import { FontAwesomeIcon } from "../../utils/fontawesome";
+import Button from "@/components/UI/Button";
+import ExperiencesList from "@/components/experiences/ExperiencesList";
 
 function ExperiencePage(props) {
   return (
@@ -16,68 +16,76 @@ function ExperiencePage(props) {
 export async function getStaticProps() {
   const DUMMY_EXPERIENCES = [
     {
-      title: 'Full Stack Developer in Telconet',
-      date: 'June 2022 - Present',
-      occupation: 'Telecomunications leader in Ecuador',
+      title: "Full Stack Developer in Telconet",
+      date: "June 2022 - Present",
+      occupation: "Telecomunications leader in Ecuador",
       descriptions: [
-        'Develop new features for app used by technicians who install internet on houses and companies.',
-        'Fixing bugs that exist on the same app',
-        'Develop new features for frontend on ExtJS used to manage daily installations via web',
-        'Develop new features for backend on Symfony'
+        "Develop new features for app used by technicians who install internet on houses and companies.",
+        "Fixing bugs that exist on the same app",
+        "Develop new features for frontend on ExtJS used to manage daily installations via web",
+        "Develop new features for backend on Symfony",
       ],
-      techs: ['Java (Mobile Development)', 'ExtJS', 'Symfony', 'Gitlab'],
-      link: 'https://www.telconet.net/'
+      techs: ["Java (Mobile Development)", "ExtJS", "Symfony", "Gitlab"],
+      link: "https://www.telconet.net/",
     },
     {
-      title: 'Junior Developer - Semi Senior in Funiber',
-      date: 'March 2021 - May 2023',
-      occupation: 'ONG that provides online studies',
+      title:
+        "Junior Full Stack Developer - Semi Senior Full Stack Developer in Funiber",
+      date: "March 2021 - May 2023",
+      occupation: "ONG that provides online studies",
       descriptions: [
-        'Create scientific dockerized repositories for all the universities of the ONG FUNIBER.',
-        'Create a network of universities, independent and automatically scalable using technologies like Kubernetes.',
-        'Create scripts for automatization between universities',
-        'Data Scientist in the field of Score leads (Feature Engineering, train, test, improve accuracy) with own models and using Vertex AI'
+        "Create scientific dockerized repositories for all the universities of the ONG FUNIBER.",
+        "Create a network of universities, independent and automatically scalable using technologies like Kubernetes.",
+        "Create scripts for automatization between universities",
+        "Data Scientist in the field of Score leads (Feature Engineering, train, test, improve accuracy) with own models and using Vertex AI",
       ],
       techs: [
-        'Docker, Kubernetes',
-        'Google Cloud Platform, GITLAB',
-        'HTML, CSS, JavaScript, JQuery',
-        'Gitlab',
-        'Python, Flask',
-        'MySQL'
+        "Docker, Kubernetes",
+        "Google Cloud Platform, GITLAB",
+        "HTML, CSS, JavaScript, JQuery",
+        "Gitlab",
+        "Python, Flask",
+        "MySQL",
       ],
-      link: 'https://repositorio.uneatlantico.es/'
+      link: "https://repositorio.uneatlantico.es/",
     },
     {
-      title: 'Junior Developer in Hangaroa',
-      date: 'August 2020 - October 2021',
-      occupation: 'Enterprise that builds IT solutions to Guayaquil StartUps',
+      title: "Junior Full Stack Developer in Hangaroa",
+      date: "August 2020 - October 2021",
+      occupation: "Enterprise that builds IT solutions to Guayaquil StartUps",
       descriptions: [
-        'Creation of startup applications using front and back end technologies',
-        'Integration and creating new features to already created startup apps',
-        'Corrections of bugs of created startup apps',
-        'Also coded in hosted backend of all apps that is pythonanywhere in Django'
+        "Creation of startup applications using front and back end technologies",
+        "Integration and creating new features to already created startup apps",
+        "Corrections of bugs of created startup apps",
+        "Also coded in hosted backend of all apps that is pythonanywhere in Django",
       ],
-      techs: ['GIT', 'Angular', 'React Native', 'Django', 'HTML, CSS, JavaScript, JQuery', 'MySQL'],
-      link: 'https://github.com/axelauza97/TransporterBackend'
+      techs: [
+        "GIT",
+        "Angular",
+        "React Native",
+        "Django",
+        "HTML, CSS, JavaScript, JQuery",
+        "MySQL",
+      ],
+      link: "https://github.com/axelauza97/TransporterBackend",
     },
     {
-      title: 'Investigation Assistant in CIDIS',
-      date: 'June 2019 - March 2020',
-      occupation: 'Research center in ESPOL university',
+      title: "Investigation Assistant in CIDIS",
+      date: "June 2019 - March 2020",
+      occupation: "Research center in ESPOL university",
       descriptions: [
-        'Django Backend creation with webpage for investigation project management.',
-        'Creation of a banana dataset using multispectral cameras',
-        'Creation and configuration of an environment in CARLA Simulator for a dataset construction.'
+        "Django Backend creation with webpage for investigation project management.",
+        "Creation of a banana dataset using multispectral cameras",
+        "Creation and configuration of an environment in CARLA Simulator for a dataset construction.",
       ],
-      techs: ['GIT', 'Django', 'Python', 'MySQL', 'Computer Vision'],
-      link: 'https://github.com/axelauza97/CARLA-SIMULATOR'
-    }
+      techs: ["GIT", "Django", "Python", "MySQL", "Computer Vision"],
+      link: "https://github.com/axelauza97/CARLA-SIMULATOR",
+    },
   ];
   return {
     props: {
-      experiences: DUMMY_EXPERIENCES
-    }
+      experiences: DUMMY_EXPERIENCES,
+    },
   };
 }
 export default ExperiencePage;
