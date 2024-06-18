@@ -54,7 +54,7 @@ function AboutPage() {
             <Button
               onClick={() =>
                 window.open(
-                  "https://espolec-my.sharepoint.com/:b:/g/personal/aaauza_espol_edu_ec/ETbcVt8NUW1Js3w_jUKHCAsBZd1wA2UnEph3IMIPiAIj3w?e=XKQrmy",
+                  "https://espolec-my.sharepoint.com/:f:/g/personal/aaauza_espol_edu_ec/Ehb3aeqqzjBMoHzUdRX2J2QB1ZKc9e5EE-Y_-eex4peseQ?e=j1agWC",
                 )
               }
             >
@@ -133,7 +133,7 @@ function AboutPage() {
             <Button
               onClick={() =>
                 window.open(
-                  "https://espolec-my.sharepoint.com/:b:/g/personal/aaauza_espol_edu_ec/Ea69xpdLsu1Aq0C_n9rIh6ABjW6waB3Il1ljAV7MR3481w?e=eoGQBi",
+                  "https://espolec-my.sharepoint.com/:f:/g/personal/aaauza_espol_edu_ec/EsFdvqvxptdGnZSn4pfd758BGgjERheoQ13AuRA0u1-QSg?e=TKduZc",
                 )
               }
             >
@@ -156,7 +156,7 @@ function AboutPage() {
             <Button
               onClick={() =>
                 window.open(
-                  "https://espolec-my.sharepoint.com/:v:/g/personal/aaauza_espol_edu_ec/EZ_NNGrlQ7hHkQTgJ96bZ6gBQtSeTAWolL6U5Vdxb8__Mw?e=6BjW9V",
+                  "https://espolec-my.sharepoint.com/:f:/g/personal/aaauza_espol_edu_ec/EsFdvqvxptdGnZSn4pfd758BGgjERheoQ13AuRA0u1-QSg?e=TKduZc",
                 )
               }
             >

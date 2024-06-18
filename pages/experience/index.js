@@ -16,8 +16,20 @@ function ExperiencePage(props) {
 export async function getStaticProps() {
   const DUMMY_EXPERIENCES = [
     {
+      title: "Senior Full Stack Developer (Remote)",
+      date: "March 2024 - Present",
+      occupation: "RealState company in USA",
+      descriptions: [
+        "Transform Designs into Reality: Work closely with our design team to convert pixel-perfect designs",
+        "Feature Development: Collaborate with our backend team to add and enhance features on our NodeJS platform",
+        "Optimize Website Performance: Drive significant improvements in our website’s SEO metrics and overall performance",
+      ],
+      techs: ["React", "NodeJS", "CSS", "Tailwind"],
+      link: "https://sell2rent.com/",
+    },
+    {
       title: "Full Stack Developer in Telconet",
-      date: "June 2022 - Present",
+      date: "June 2022 - May 2024",
       occupation: "Telecomunications leader in Ecuador",
       descriptions: [
         "Develop new features for app used by technicians who install internet on houses and companies.",
@@ -70,7 +82,7 @@ export async function getStaticProps() {
       link: "https://github.com/axelauza97/TransporterBackend",
     },
     {
-      title: "Investigation Assistant in CIDIS",
+      title: "Software Developer in CIDIS",
       date: "June 2019 - March 2020",
       occupation: "Research center in ESPOL university",
       descriptions: [

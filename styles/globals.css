@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 article,
 aside,
 details,
@@ -110,42 +111,56 @@ button:active {
 }
 
 .number-slide1 {
-  transform: rotateY(0deg) translateZ(300px) !important;
+  transform: rotateY(0deg) translateZ(600px) !important;
 }
 
 .number-slide2 {
-  transform: rotateY(90deg) translateZ(300px) !important;
+  transform: rotateY(72deg) translateZ(600px) !important;
 }
 
 .number-slide3 {
-  transform: rotateY(180deg) translateZ(300px) !important;
+  transform: rotateY(144deg) translateZ(600px) !important;
 }
 
 .number-slide4 {
-  transform: rotateY(270deg) translateZ(300px) !important;
+  transform: rotateY(216deg) translateZ(600px) !important;
+}
+
+.number-slide5 {
+  transform: rotateY(288deg) translateZ(600px) !important;
 }
 
 @media screen and (min-width: 700px) {
   .wrapper {
     overflow: visible;
   }
+
   .scene {
     height: 50rem;
     perspective: 1000px;
   }
+
   .carousel__cell {
     left: 10px;
   }
+
   .number-slide1 {
     transform: rotateY(0deg) translateZ(600px) !important;
   }
+
   .number-slide2 {
-    transform: rotateY(90deg) translateZ(600px) !important;
+    transform: rotateY(72deg) translateZ(600px) !important;
   }
+
   .number-slide3 {
-    transform: rotateY(180deg) translateZ(600px) !important;
+    transform: rotateY(144deg) translateZ(600px) !important;
   }
+
   .number-slide4 {
-    transform: rotateY(270deg) translateZ(600px) !important;
+    transform: rotateY(216deg) translateZ(600px) !important;
+  }
+
+  .number-slide5 {
+    transform: rotateY(288deg) translateZ(600px) !important;
   }
 }
