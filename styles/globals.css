@@ -1,6 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-background text-text-primary font-sans antialiased;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-background;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-accent-purple rounded-full;
+  }
+
+  ::selection {
+    @apply bg-accent-purple/30 text-white;
+  }
+}
+
+@layer components {
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-accent-cyan via-accent-purple to-accent-pink;
+    background-size: 200% 200%;
+  }
+
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-xl;
+  }
+
+  .section-container {
+    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-section;
+  }
+}
+
+/* ============================================================
+   Legacy carousel styles — used by existing components.
+   DO NOT remove these until the carousel is fully replaced.
+   ============================================================ */
 
 article,
 aside,
@@ -53,10 +99,6 @@ p {
 a {
   color: inherit;
   text-decoration: inherit;
-}
-
-html {
-  background-color: #222831;
 }
 
 button,

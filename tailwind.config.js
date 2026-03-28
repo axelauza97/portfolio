@@ -1,30 +1,61 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
-
-    // Or if using `src` directory:
-    './src/**/*.{js,ts,jsx,tsx,mdx}'
+    "./pages/**/*.{js,jsx}",
+    "./components/**/*.{js,jsx}",
   ],
+  darkMode: "class",
   theme: {
     screens: {
-      sm: '700px',
-      // => @media (min-width: 640px) { ... }
-
-      md: '768px',
-      // => @media (min-width: 768px) { ... }
-
-      lg: '1024px',
-      // => @media (min-width: 1024px) { ... }
-
-      xl: '1280px',
-      // => @media (min-width: 1280px) { ... }
-
-      '2xl': '1536px'
-      // => @media (min-width: 1536px) { ... }
-    }
+      sm: "700px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px",
+      "2xl": "1536px",
+    },
+    extend: {
+      colors: {
+        background: "#0f172a",     // Dark navy
+        surface: "#1e293b",        // Card backgrounds
+        border: "#334155",         // Subtle borders
+        accent: {
+          cyan: "#06b6d4",
+          purple: "#8b5cf6",
+          pink: "#ec4899",
+        },
+        text: {
+          primary: "#f1f5f9",
+          secondary: "#94a3b8",
+          muted: "#64748b",
+        },
+      },
+      fontFamily: {
+        sans: ["Inter", "system-ui", "sans-serif"],
+        mono: ["JetBrains Mono", "monospace"],
+      },
+      spacing: {
+        section: "6rem",
+      },
+      animation: {
+        "fade-in": "fadeIn 0.5s ease-out",
+        "slide-up": "slideUp 0.6s ease-out",
+        "gradient-x": "gradientX 3s ease infinite",
+      },
+      keyframes: {
+        fadeIn: {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
+        slideUp: {
+          "0%": { opacity: "0", transform: "translateY(20px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        gradientX: {
+          "0%, 100%": { backgroundPosition: "0% 50%" },
+          "50%": { backgroundPosition: "100% 50%" },
+        },
+      },
+    },
   },
-  plugins: []
+  plugins: [],
 };
