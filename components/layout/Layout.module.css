@@ -1,23 +1,5 @@
-/*.main {
-  margin: 3rem auto;
-  width: 90%;
-  max-width: 40rem;
-}*/
-
-.main {
-  background-color: #222831;
-  color: white;
-}
-
-.body {
-  background: #222831;
-  /*width: fit-content;*/
-  /*background-color: #222831;
-  height: 100vh;*/
-}
-
-@media screen and (min-width: 700px) {
-  .body {
-    width: 100%;
-  }
-}
+/*
+  Legacy Layout module — background and color now controlled by
+  Tailwind design tokens (bg-background, text-text-primary) in Layout.js.
+  This file is kept to avoid breaking any CSS module references elsewhere.
+*/

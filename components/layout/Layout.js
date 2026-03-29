@@ -1,18 +1,11 @@
-import MainNavigation from "./MainNavigation";
-import classes from "./Layout.module.css";
+import Navbar from "./Navbar";
 import Footer from "./Footer";
-import { Oswald } from "next/font/google";
-
-const oswald = Oswald({
-  subsets: ["latin"],
-  display: "swap",
-});
 
 function Layout(props) {
   return (
-    <div className={`${classes.body} " " ${oswald.className}`}>
-      <MainNavigation />
-      <main className={classes.main}>{props.children}</main>
+    <div className="min-h-screen bg-background">
+      <Navbar />
+      <main className="pt-16">{props.children}</main>
       <Footer />
     </div>
   );
