@@ -15,7 +15,7 @@ const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-mon
 config.autoAddCss = false;
 export default function App({ Component, pageProps }) {
   return (
-    <div className={`${inter.variable} ${jetbrainsMono.variable}`}>
+    <div className={`${inter.variable} ${jetbrainsMono.variable} font-sans`}>
       <Head>
         <title>Full Stack Developer Axel Auza</title>
         <meta
