@@ -95,8 +95,17 @@ export default function Home(props) {
   );
 }
 export async function getStaticProps() {
-  const response = await fetch('https://api.github.com/users/axelauza97/repos');
-  const resData = await response.json();
+  let resData = [];
+  try {
+    const response = await fetch('https://api.github.com/users/axelauza97/repos');
+    resData = await response.json();
+  } catch (error) {
+    console.warn('GitHub API fetch failed, using empty fallback:', error.message);
+    return {
+      props: { repos: [], projects: [] },
+      revalidate: 60
+    };
+  }
 
   const projects = [
     {

@@ -50,11 +50,11 @@ export default function Navbar() {
   }, [handleKeyDown]);
 
   const isActive = (href) => {
-    const path = href.split("#")[0] || "/";
-    if (path === "/") {
-      return router.pathname === "/";
-    }
-    return router.pathname === path || router.pathname.startsWith(path);
+    // Hash links are section anchors — never "active" as a page
+    if (href.includes("#") && href !== "/") return false;
+    // Exact match for home, prefix match for other pages
+    if (href === "/") return router.pathname === "/";
+    return router.pathname === href || router.pathname.startsWith(href);
   };
 
   const entranceAnimation = prefersReducedMotion
