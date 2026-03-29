@@ -7,11 +7,15 @@ import Head from 'next/head';
 import { Analytics } from '@vercel/analytics/react';
 import { ModalProvider } from '@/context/modal';
 import { LoaderProvider } from '@/context/loader';
+import { Inter, JetBrains_Mono } from 'next/font/google';
+
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
+const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-mono' });
 
 config.autoAddCss = false;
 export default function App({ Component, pageProps }) {
   return (
-    <>
+    <div className={`${inter.variable} ${jetbrainsMono.variable}`}>
       <Head>
         <title>Full Stack Developer Axel Auza</title>
         <meta
@@ -32,6 +36,6 @@ export default function App({ Component, pageProps }) {
         </ModalProvider>
         <Analytics />
       </Layout>
-    </>
+    </div>
   );
 }
