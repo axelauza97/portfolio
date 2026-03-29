@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const navItems = [
   { name: "Home", href: "/" },
@@ -14,6 +15,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const prefersReducedMotion = useReducedMotion();
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -31,6 +33,29 @@ export default function Navbar() {
     window.addEventListener("resize", handleResize, { passive: true });
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  // Close mobile menu on Escape key
+  const handleKeyDown = useCallback(
+    (e) => {
+      if (e.key === "Escape" && mobileOpen) {
+        setMobileOpen(false);
+      }
+    },
+    [mobileOpen]
+  );
+
+  useEffect(() => {
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [handleKeyDown]);
+
+  const isActive = (href) => {
+    const path = href.split("#")[0] || "/";
+    if (path === "/") {
+      return router.pathname === "/";
+    }
+    return router.pathname === path || router.pathname.startsWith(path);
+  };
 
   const entranceAnimation = prefersReducedMotion
     ? { initial: { opacity: 1, y: 0 }, animate: { opacity: 1, y: 0 } }
@@ -57,22 +82,34 @@ export default function Navbar() {
 
           {/* Desktop Links */}
           <div className="hidden md:flex items-center gap-8">
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="text-text-secondary hover:text-white transition-colors duration-200 text-sm font-medium relative group"
-              >
-                {item.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent-purple group-hover:w-full transition-all duration-300" />
-              </Link>
-            ))}
+            {navItems.map((item) => {
+              const active = isActive(item.href);
+              return (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  aria-current={active ? "page" : undefined}
+                  className={`text-sm font-medium relative group transition-colors duration-200 ${
+                    active
+                      ? "text-text-primary"
+                      : "text-text-secondary hover:text-text-primary"
+                  }`}
+                >
+                  {item.name}
+                  <span
+                    className={`absolute -bottom-1 left-0 h-0.5 bg-accent-purple transition-all duration-300 ${
+                      active ? "w-full" : "w-0 group-hover:w-full"
+                    }`}
+                  />
+                </Link>
+              );
+            })}
           </div>
 
           {/* Mobile Hamburger */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden text-white p-2 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-purple"
+            className="md:hidden text-text-primary p-2 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-purple"
             aria-label={mobileOpen ? "Close navigation" : "Open navigation"}
             aria-expanded={mobileOpen}
             aria-controls="mobile-menu"
@@ -87,7 +124,7 @@ export default function Navbar() {
                   closed: { rotate: 0, y: 0 },
                 }}
                 transition={{ duration: prefersReducedMotion ? 0 : 0.2 }}
-                className="block h-0.5 w-6 bg-white origin-center"
+                className="block h-0.5 w-6 bg-text-primary origin-center"
               />
               <motion.span
                 variants={{
@@ -95,7 +132,7 @@ export default function Navbar() {
                   closed: { opacity: 1, scaleX: 1 },
                 }}
                 transition={{ duration: prefersReducedMotion ? 0 : 0.2 }}
-                className="block h-0.5 w-6 bg-white"
+                className="block h-0.5 w-6 bg-text-primary"
               />
               <motion.span
                 variants={{
@@ -103,7 +140,7 @@ export default function Navbar() {
                   closed: { rotate: 0, y: 0 },
                 }}
                 transition={{ duration: prefersReducedMotion ? 0 : 0.2 }}
-                className="block h-0.5 w-6 bg-white origin-center"
+                className="block h-0.5 w-6 bg-text-primary origin-center"
               />
             </motion.div>
           </button>
@@ -122,16 +159,24 @@ export default function Navbar() {
             className="md:hidden bg-surface/95 backdrop-blur-lg border-b border-white/10 overflow-hidden"
           >
             <nav aria-label="Mobile navigation">
-              {navItems.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  onClick={() => setMobileOpen(false)}
-                  className="block px-6 py-3 text-text-secondary hover:text-white hover:bg-white/5 transition-colors duration-150 text-sm font-medium"
-                >
-                  {item.name}
-                </Link>
-              ))}
+              {navItems.map((item) => {
+                const active = isActive(item.href);
+                return (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    onClick={() => setMobileOpen(false)}
+                    aria-current={active ? "page" : undefined}
+                    className={`block px-6 py-3 text-sm font-medium transition-colors duration-150 hover:bg-white/5 ${
+                      active
+                        ? "text-text-primary"
+                        : "text-text-secondary hover:text-text-primary"
+                    }`}
+                  >
+                    {item.name}
+                  </Link>
+                );
+              })}
             </nav>
           </motion.div>
         )}

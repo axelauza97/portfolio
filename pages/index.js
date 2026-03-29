@@ -57,11 +57,11 @@ export default function Home(props) {
       </div>
       {showModal ? <Modal /> : ''}
       {isLoading.isLoading ? <Loader /> : ''}
-      <div className={classes.contactButton}>
+      <div id="contact" className={classes.contactButton}>
         <Button onClick={() => setShowModal((prev) => !prev)}>Contact me!</Button>
       </div>
 
-      <section className={`${classes.section} ${classes.reveal} p-2`}>
+      <section id="projects" className={`${classes.section} ${classes.reveal} p-2`}>
         <h2 className="mt-4">Main Projects</h2>
         <ul className="mt-4 grid gap-8">
           {props.projects && props.projects.map((project) => <ProjectCard project={project} />)}
