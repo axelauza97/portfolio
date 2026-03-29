@@ -94,20 +94,7 @@ export default function Home(props) {
     </>
   );
 }
-export async function getStaticProps() {
-  let resData = [];
-  try {
-    const response = await fetch('https://api.github.com/users/axelauza97/repos');
-    resData = await response.json();
-  } catch (error) {
-    console.warn('GitHub API fetch failed, using empty fallback:', error.message);
-    return {
-      props: { repos: [], projects: [] },
-      revalidate: 60
-    };
-  }
-
-  const projects = [
+const projects = [
     {
       title: 'Uneatlantico',
       image: uneatlanticoImage,
@@ -176,6 +163,20 @@ export async function getStaticProps() {
       link: 'https://clarifion-axel-auza.netlify.app/'
     }
   ];
+
+export async function getStaticProps() {
+  let resData = [];
+  try {
+    const response = await fetch('https://api.github.com/users/axelauza97/repos');
+    resData = await response.json();
+  } catch (error) {
+    console.warn('GitHub API fetch failed, using empty fallback:', error.message);
+    return {
+      props: { repos: [], projects },
+      revalidate: 60
+    };
+  }
+
   return {
     props: {
       repos: resData,

@@ -26,6 +26,10 @@
   ::selection {
     @apply bg-accent-purple/30 text-white;
   }
+
+  [id] {
+    scroll-margin-top: 5rem;
+  }
 }
 
 @layer components {

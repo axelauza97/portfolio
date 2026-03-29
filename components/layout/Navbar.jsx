@@ -57,14 +57,9 @@ export default function Navbar() {
     return router.pathname === href || router.pathname.startsWith(href);
   };
 
-  const entranceAnimation = prefersReducedMotion
-    ? { initial: { opacity: 1, y: 0 }, animate: { opacity: 1, y: 0 } }
-    : { initial: { opacity: 0, y: -100 }, animate: { opacity: 1, y: 0 } };
-
   return (
     <motion.nav
-      initial={entranceAnimation.initial}
-      animate={entranceAnimation.animate}
+      initial={false}
       transition={{ duration: 0.4, ease: "easeOut" }}
       aria-label="Main navigation"
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
