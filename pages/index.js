@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Hero from '@/components/sections/Hero';
 import Projects from '@/components/sections/Projects';
+import Experience from '@/components/sections/Experience';
 import Button from '@/components/UI/Button';
 import { useContext, useEffect } from 'react';
 import { ModalContext } from '@/context/modal';
@@ -47,6 +48,7 @@ export default function Home() {
       </div>
 
       <Projects />
+      <Experience />
     </>
   );
 }
