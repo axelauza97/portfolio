@@ -8,10 +8,4 @@ module.exports = defineConfig({
   use: {
     baseURL: `http://localhost:${PORT}`,
   },
-  webServer: {
-    command: `npm run dev -- -p ${PORT}`,
-    url: `http://localhost:${PORT}`,
-    reuseExistingServer: true,
-    timeout: 30000,
-  },
 });

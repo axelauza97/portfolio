@@ -8,42 +8,39 @@ import Contact from '@/components/sections/Contact';
 const metadata = {
   title: 'Axel Auza — Full Stack Developer',
   description:
-    'Full Stack Developer specializing in React, Django, and cloud-backed web platforms. Building resilient user experiences from Guayaquil, Ecuador.',
+    'Full Stack Developer building React, Django, and cloud-backed web products from Guayaquil, Ecuador.',
   canonical: 'https://axelauza.com',
   ogImage: 'https://axelauza.com/og-image.svg',
 };
 
-const structuredData = [
-  {
-    '@context': 'https://schema.org',
-    '@type': 'WebSite',
-    name: 'Axel Auza Portfolio',
-    url: metadata.canonical,
-    description: metadata.description,
-    author: {
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      name: 'Axel Auza Portfolio',
+      url: metadata.canonical,
+      description: metadata.description,
+    },
+    {
       '@type': 'Person',
       name: 'Axel Auza',
+      url: metadata.canonical,
+      image: metadata.ogImage,
+      jobTitle: 'Full Stack Developer',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Guayaquil',
+        addressCountry: 'EC',
+      },
+      sameAs: [
+        'https://github.com/axelauza97',
+        'https://www.linkedin.com/in/axelauza/',
+      ],
+      knowsAbout: ['React', 'Next.js', 'Django', 'Python', 'Docker', 'Kubernetes'],
     },
-  },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'Person',
-    name: 'Axel Auza',
-    url: metadata.canonical,
-    image: metadata.ogImage,
-    jobTitle: 'Full Stack Developer',
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: 'Guayaquil',
-      addressCountry: 'EC',
-    },
-    sameAs: [
-      'https://github.com/axelauza97',
-      'https://www.linkedin.com/in/axelauza/',
-    ],
-    knowsAbout: ['React', 'Next.js', 'Django', 'Python', 'Docker', 'Kubernetes'],
-  },
-];
+  ],
+};
 
 export default function Home() {
   return (
@@ -69,7 +66,10 @@ export default function Home() {
         <meta name="twitter:image" content={metadata.ogImage} />
         <link rel="canonical" href={metadata.canonical} />
         <link rel="sitemap" type="application/xml" href={`${metadata.canonical}/sitemap.xml`} />
-        <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
       </Head>
 
       <Hero />

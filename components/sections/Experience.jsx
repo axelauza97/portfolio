@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { experiences } from "@/mocks/experience";
 import SectionHeading from "@/components/common/SectionHeading";
 import TechBadge from "@/components/common/TechBadge";
@@ -19,11 +20,76 @@ const levelDotColors = {
 };
 
 export default function Experience() {
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    let cleanup = () => {};
+
+    async function setupTimelineAnimation() {
+      if (typeof window === "undefined" || !containerRef.current) return;
+
+      const prefersReducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
+
+      if (prefersReducedMotion) return;
+
+      const [{ default: gsap }, { ScrollTrigger }] = await Promise.all([
+        import("gsap"),
+        import("gsap/ScrollTrigger"),
+      ]);
+
+      if (cancelled || !containerRef.current) return;
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      const cards = gsap.utils.toArray(".timeline-card", containerRef.current);
+
+      const triggers = cards.map((card, index) =>
+        ScrollTrigger.create({
+          trigger: card,
+          start: "top 82%",
+          once: true,
+          onEnter: () => {
+            gsap.fromTo(
+              card,
+              {
+                x: index % 2 === 0 ? -24 : 24,
+                y: 16,
+                opacity: 0.2,
+              },
+              {
+                x: 0,
+                y: 0,
+                opacity: 1,
+                duration: 0.6,
+                ease: "power2.out",
+                overwrite: "auto",
+              }
+            );
+          },
+        })
+      );
+
+      cleanup = () => {
+        triggers.forEach((trigger) => trigger.kill());
+      };
+    }
+
+    setupTimelineAnimation();
+
+    return () => {
+      cancelled = true;
+      cleanup();
+    };
+  }, []);
+
   return (
     <section id="experience" className="section-container overflow-x-clip">
       <SectionHeading title="Experience" subtitle="My professional journey" />
 
-      <div className="relative max-w-3xl mx-auto overflow-x-clip">
+      <div ref={containerRef} className="relative max-w-3xl mx-auto overflow-x-clip">
         {/* Vertical line */}
         <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-white/10 -translate-x-1/2" />
 
