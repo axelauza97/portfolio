@@ -58,7 +58,7 @@ export default function Projects() {
           rel="noopener noreferrer"
           className="text-text-secondary hover:text-accent-cyan transition-colors font-mono text-sm inline-flex items-center gap-2 group"
         >
-          View all projects on GitHub
+          Browse GitHub profile
           <span className="group-hover:translate-x-1 transition-transform duration-200" aria-hidden="true">→</span>
         </a>
       </div>
