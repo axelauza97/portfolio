@@ -12,6 +12,7 @@ export const experiences = [
       "Drive SEO and performance improvements",
     ],
     tags: ["React", "Node.js", "Tailwind", "CSS"],
+    link: "https://sell2rent.com/",
   },
   {
     role: "Full Stack Developer",
@@ -26,6 +27,7 @@ export const experiences = [
       "Backend development with Symfony",
     ],
     tags: ["Java", "ExtJS", "Symfony", "GitLab"],
+    link: "https://www.telconet.net/",
   },
   {
     role: "Junior → Semi Senior Full Stack Developer",
@@ -40,6 +42,7 @@ export const experiences = [
       "Data Science: score leads with Vertex AI and custom models",
     ],
     tags: ["Docker", "Kubernetes", "GCP", "Python", "Flask"],
+    link: "https://repositorio.uneatlantico.es/",
   },
   {
     role: "Junior Full Stack Developer",
@@ -53,6 +56,7 @@ export const experiences = [
       "Integrated features and fixed bugs across multiple apps",
     ],
     tags: ["Angular", "React Native", "Django", "MySQL"],
+    link: "https://github.com/axelauza97/TransporterBackend",
   },
   {
     role: "Software Developer",
@@ -67,5 +71,6 @@ export const experiences = [
       "Configured CARLA Simulator for synthetic dataset construction",
     ],
     tags: ["Django", "Python", "Computer Vision"],
+    link: "https://github.com/axelauza97/CARLA-SIMULATOR",
   },
 ];

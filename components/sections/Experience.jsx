@@ -6,8 +6,6 @@ import { experiences } from "@/mocks/experience";
 import SectionHeading from "@/components/common/SectionHeading";
 import TechBadge from "@/components/common/TechBadge";
 
-gsap.registerPlugin(ScrollTrigger);
-
 const levelColors = {
   intern: "border-emerald-500",
   junior: "border-blue-500",
@@ -29,10 +27,9 @@ export default function Experience() {
 
   useGSAP(
     () => {
-      if (
-        typeof window !== "undefined" &&
-        window.matchMedia("(prefers-reduced-motion: reduce)").matches
-      ) {
+      if (typeof window === "undefined") return;
+      gsap.registerPlugin(ScrollTrigger);
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
         return;
       }
       const cards = containerRef.current.querySelectorAll(".timeline-card");

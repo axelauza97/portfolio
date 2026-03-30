@@ -22,7 +22,7 @@ export async function getStaticProps() {
     occupation: `${exp.company} · ${exp.type}`,
     descriptions: exp.bullets,
     techs: exp.tags,
-    link: null,
+    link: exp.link || null,
   }));
   return {
     props: {

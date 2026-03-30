@@ -1,8 +1,7 @@
 import Head from 'next/head';
 import Hero from '@/components/sections/Hero';
 import Projects from '@/components/sections/Projects';
-import dynamic from 'next/dynamic';
-const Experience = dynamic(() => import('@/components/sections/Experience'), { ssr: false });
+import Experience from '@/components/sections/Experience';
 import Button from '@/components/UI/Button';
 import { useContext, useEffect } from 'react';
 import { ModalContext } from '@/context/modal';
