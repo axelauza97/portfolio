@@ -40,6 +40,7 @@ module.exports = {
         "fade-in": "fadeIn 0.5s ease-out",
         "slide-up": "slideUp 0.6s ease-out",
         "gradient-x": "gradientX 3s ease infinite",
+        marquee: "marquee var(--duration, 30s) linear infinite",
       },
       keyframes: {
         fadeIn: {
@@ -53,6 +54,10 @@ module.exports = {
         gradientX: {
           "0%, 100%": { backgroundPosition: "0% 50%" },
           "50%": { backgroundPosition: "100% 50%" },
+        },
+        marquee: {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(-100%)" },
         },
       },
     },
