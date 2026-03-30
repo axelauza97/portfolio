@@ -1,19 +1,14 @@
 import classes from 'styles/Home.module.css';
-import hero from 'public/axel.avif';
 import portfolioImage from 'public/portfolioImage.avif';
 import bazarImage from 'public/bazarImage.avif';
 import clarifonImage from 'public/clarifonImage.avif';
 import uneatlanticoImage from 'public/uneatlanticoImage.avif';
 import transporterImage from 'public/transporterImage.avif';
-
 import architectureImage from 'public/architectureImage.avif';
-
-import Image from 'next/image';
+import Hero from '@/components/sections/Hero';
 import Button from '@/components/UI/Button';
 import RepoList from '@/components/repos/RepoList';
-//import responseData from "@/mocks/response.json";
 import { useContext, useEffect } from 'react';
-import rocket from 'public/rocket.svg';
 import { useReveal } from '@/hooks/useReveal';
 import { ModalContext } from '@/context/modal';
 import { LoaderContext } from '@/context/loader';
@@ -40,21 +35,7 @@ export default function Home(props) {
   }, [showModal, setShowModal]);
   return (
     <>
-      <div className={classes.container}>
-        <section className={classes.main}>
-          <Image className={classes.image} src={hero} alt="personalImage" priority={false} />
-          <div className={classes.profession}>
-            <h1>Full Stack Developer</h1>
-            <h3>Guayaquil-Ecuador</h3>
-          </div>
-          <p className={classes.mainDescription}>
-            Dedicated full-stack developer with a strong passion for crafting innovative web
-            applications. I specialize in React and Django, combining the power of both to build
-            robust and user-friendly software solutions.
-          </p>
-          <Image src={rocket} alt="rocket" className={classes.rocketImage} priority={false} />
-        </section>
-      </div>
+      <Hero />
       {showModal ? <Modal /> : ''}
       {isLoading.isLoading ? <Loader /> : ''}
       <div id="contact" className={classes.contactButton}>

@@ -1,9 +1,10 @@
-# Phase 2 Build Report — Fix Iteration 3
+# Phase 2 Build Report — Fix Iteration 4
 
 ## Files Modified
 
-- `components/layout/Navbar.jsx` — corrected `isActive()` hash-link logic
-- `pages/index.js` — wrapped GitHub API fetch in try/catch with empty-array fallback
+- `pages/index.js` — hoisted `projects` array from inside `getStaticProps` to module scope so the catch block can reference it; catch now returns `{ repos: [], projects }` instead of `{ repos: [], projects: [] }`
+- `components/layout/Navbar.jsx` — removed `entranceAnimation` object and changed `motion.nav` from `initial={entranceAnimation.initial}` to `initial={false}`; also removed the now-unused `animate={entranceAnimation.animate}` prop
+- `styles/globals.css` — added `[id] { scroll-margin-top: 5rem; }` inside the `@layer base` block
 
 ## Dependencies Installed
 
@@ -11,47 +12,36 @@ None.
 
 ## Decisions Made
 
-### Fix 1: Navbar isActive() logic
+### Fix 1 — getStaticProps fallback
+The `projects` array was defined inside `getStaticProps` after the try/catch block, making it unreachable from the catch. Moving it to module scope (before `export default function Home`) is the minimal change: no logic altered, same data, now accessible everywhere in the module.
 
-The previous implementation split `href` on `#` and took only the path segment.
-This caused `/#projects` to resolve to `/`, which then matched the home route —
-marking the Projects and Contact links as active on every page.
+### Fix 2 — Navbar SSR visibility
+Changed `initial` to `false` on `motion.nav`. This tells Framer Motion to skip the initial animation entirely — the element renders in its natural CSS state (visible) from the start. The scroll-based className changes via Tailwind still work on the client. The `entranceAnimation` object was removed since it was only used for the now-removed initial/animate entrance props.
 
-The new logic short-circuits immediately for any `href` that contains `#` (and
-is not a bare `/`), returning `false`. This means section anchors are never
-treated as page-level routes. The remaining cases handle home (exact match) and
-other pages (prefix match) as before.
-
-Result: on `/`, only "Home" is active. On `/about`, only "About" is active.
-Projects and Contact (hash links) are never shown as active.
-
-### Fix 2: getStaticProps GitHub fetch fallback
-
-The fetch was unguarded at the top of `getStaticProps`. A network error at build
-time (rate-limited CI, offline environment) would throw and fail the entire
-build. The fix wraps only the fetch + json parse in a try/catch. On failure it
-logs a warning and returns `{ props: { repos: [], projects: [] }, revalidate: 60 }`,
-allowing the build to complete. A short revalidate of 60 seconds ensures the
-live site retries quickly. Successful fetches continue to use revalidate 36000.
+### Fix 3 — Anchor scroll offset
+Used the global CSS `[id]` selector rule rather than adding `scroll-mt-20` classes to individual elements. This is more maintainable — it covers all current and future anchor targets site-wide with a single declaration. 5rem (80px) gives a comfortable margin above the 4rem (64px) fixed navbar.
 
 ## Build Status
 
-PASS — all 5 pages generated without errors or type failures.
+PASS — `npm run build` completed with zero errors. One pre-existing warning about the `/` page data size (165 kB exceeds 128 kB threshold) exists due to the inline image data in the projects array; this is not introduced by these changes.
 
 ```
 Route (pages)                              Size     First Load JS
-┌ ● / (ISR: 36000 Seconds) (1054 ms)       6.57 kB         148 kB
+┌ ● / (ISR: 36000 Seconds) (852 ms)        6.57 kB         148 kB
+├   └ css/7ae3d16ba6cd42a9.css             1.77 kB
 ├   /_app                                  0 B             142 kB
 ├ ○ /404                                   182 B           142 kB
-├ ○ /about                                 2.9 kB          144 kB
+├ ○ /about (312 ms)                        2.9 kB          144 kB
+├   └ css/d4a334f1943cc7ee.css             1.42 kB
 ├ λ /api/sendEmail                         0 B             142 kB
-└ ● /experience                            7.14 kB         149 kB
+└ ● /experience (317 ms)                   7.14 kB         149 kB
+    └ css/9cd9eae3e675ff80.css             1.15 kB
 ```
 
 ## Known Limitations
 
 - The `/` page data payload (165 kB) exceeds Next.js's 128 kB recommendation
   due to the large `projects` array with base64-encoded AVIF image data. This
-  is a pre-existing issue unrelated to this iteration's changes; addressing it
-  would require lazy-loading project images or moving them out of `getStaticProps`.
+  is a pre-existing issue; addressing it would require lazy-loading project images
+  or moving them out of `getStaticProps`.
 - The `caniuse-lite` database is outdated (pre-existing warning, not a build error).
