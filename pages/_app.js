@@ -26,7 +26,9 @@ export default function App({ Component, pageProps }) {
             abilities everyday pushing myself in new projects.!"
         />
         <meta name="keywords" content="Axel Auza, Next.js, Tailwind, FrontEnd, FullStack" />
-        {/* water.css removed — replaced by design system in globals.css */}
+        <link rel="icon" href="/favicon.ico" />
+        <meta property="og:image" content="https://axelauza.com/axel.avif" />
+        <meta property="og:url" content="https://axelauza.com" />
       </Head>
       <Layout>
         <ModalProvider>

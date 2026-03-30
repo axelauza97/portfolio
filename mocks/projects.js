@@ -49,7 +49,6 @@ export const featuredProjects = [
   },
 ];
 
-export const allTags = [
-  "All", "React", "Django", "Python", "Next.js",
-  "Docker", "Kubernetes", "GCP", "Microservices", "CSS",
-];
+// Derived from project data — all unique tags sorted alphabetically
+const uniqueTags = [...new Set(featuredProjects.flatMap((p) => p.tags))].sort();
+export const allTags = ["All", ...uniqueTags];
