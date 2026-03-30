@@ -13,6 +13,8 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-mono' });
 
 config.autoAddCss = false;
+const isProduction = process.env.NODE_ENV === 'production';
+
 export default function App({ Component, pageProps }) {
   return (
     <div className={`${inter.variable} ${jetbrainsMono.variable} font-sans`}>
@@ -28,7 +30,7 @@ export default function App({ Component, pageProps }) {
             <Component {...pageProps} />
           </LoaderProvider>
         </ModalProvider>
-        <Analytics />
+        {isProduction ? <Analytics /> : null}
       </Layout>
     </div>
   );

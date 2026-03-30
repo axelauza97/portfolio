@@ -22,6 +22,8 @@ const ProjectCard = forwardRef(function ProjectCard({ project, index }, ref) {
           alt={`${project.title} screenshot`}
           width={576}
           height={450}
+          priority={index < 2}
+          loading={index < 2 ? "eager" : "lazy"}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
         />

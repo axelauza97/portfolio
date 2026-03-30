@@ -32,7 +32,7 @@ function Footer() {
               href="mailto:axelauza97@hotmail.com"
               className="hover:text-accent-cyan transition-colors"
             >
-              Email
+              Email Axel
             </a>
             <Link href="/privacy" className="hover:text-accent-cyan transition-colors">
               Privacy

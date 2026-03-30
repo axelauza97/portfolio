@@ -32,17 +32,24 @@ export default function About() {
       </motion.div>
 
       {/* Tech Stack Marquee */}
-      <div className="mb-12">
+      <div className="mb-12 overflow-x-hidden">
         <p className="text-center text-text-muted text-sm font-mono mb-4">
           Technologies I work with
         </p>
-        <Marquee pauseOnHover>
+        <div className="flex flex-wrap justify-center gap-2 md:hidden">
           {techStack.map((name) => (
-            <div key={name} className="mx-2">
-              <TechBadge name={name} />
-            </div>
+            <TechBadge key={name} name={name} />
           ))}
-        </Marquee>
+        </div>
+        <div className="hidden md:block">
+          <Marquee pauseOnHover>
+            {techStack.map((name) => (
+              <div key={name} className="mx-2">
+                <TechBadge name={name} />
+              </div>
+            ))}
+          </Marquee>
+        </div>
       </div>
 
       {/* Education Card */}
@@ -74,7 +81,7 @@ export default function About() {
                 rel="noopener noreferrer"
                 className="text-accent-cyan text-sm font-mono hover:underline"
               >
-                Watch Demo →
+                Watch Thesis Demo →
               </a>
             </div>
           </div>

@@ -16,7 +16,7 @@ export function Spotlight({ className = "", fill = "cyan", position = { x: 0, y:
       aria-hidden="true"
     >
       <motion.div
-        className="absolute rounded-full blur-3xl pointer-events-none"
+        className="absolute hidden rounded-full blur-3xl pointer-events-none sm:block"
         animate={
           prefersReducedMotion
             ? { x: "30%", y: "-20%", opacity: 0.4 }

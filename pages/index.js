@@ -8,7 +8,7 @@ import Contact from '@/components/sections/Contact';
 const metadata = {
   title: 'Axel Auza — Full Stack Developer',
   description:
-    'Full Stack Developer building React, Django, and cloud-backed web products from Guayaquil, Ecuador.',
+    'Full Stack Developer building React, Django, and cloud-backed web products with a strong focus on performance, UX, and reliable delivery.',
   canonical: 'https://axelauza.com',
   ogImage: 'https://axelauza.com/og-image.png',
 };
@@ -47,7 +47,10 @@ const structuredData = {
   ],
 };
 
-const structuredDataJson = JSON.stringify(structuredData).replace(/</g, '\\u003c');
+const structuredDataJson = JSON.stringify(structuredData)
+  .replace(/</g, '\\u003c')
+  .replace(/-->/g, '--\\>')
+  .replace(/<\/script/gi, '<\\/script');
 
 export default function Home() {
   return (
@@ -73,7 +76,10 @@ export default function Home() {
         <meta name="twitter:image" content={metadata.ogImage} />
         <link rel="canonical" href={metadata.canonical} />
         <link rel="sitemap" type="application/xml" href={`${metadata.canonical}/sitemap.xml`} />
-        <script type="application/ld+json">{structuredDataJson}</script>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: structuredDataJson }}
+        />
       </Head>
 
       <Hero />

@@ -121,7 +121,7 @@ export default function Hero() {
                 href="#projects"
                 className="px-6 py-3 rounded-full bg-gradient-to-r from-accent-cyan to-accent-purple text-white font-medium hover:shadow-lg hover:shadow-accent-purple/25 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-purple"
               >
-                View My Work
+                View Projects
               </a>
               <a
                 href="#contact"

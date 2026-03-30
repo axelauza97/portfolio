@@ -26,13 +26,12 @@ for (const vp of viewports) {
         await page.goto('http://localhost:3001');
         await page.waitForLoadState('networkidle');
         const el = page.locator(section);
-        if (await el.count() > 0) {
-          await el.scrollIntoViewIfNeeded();
-          await page.waitForTimeout(500);
-          await el.screenshot({
-            path: `tests/visual/screenshots/${vp.name}-${section.replace('#', '')}.png`,
-          });
-        }
+        await expect(el, `${section} should exist for screenshot capture`).toHaveCount(1);
+        await el.scrollIntoViewIfNeeded();
+        await page.waitForTimeout(500);
+        await el.screenshot({
+          path: `tests/visual/screenshots/${vp.name}-${section.replace('#', '')}.png`,
+        });
       });
     }
   });
@@ -57,8 +56,31 @@ test('no horizontal overflow on tablet', async ({ page }) => {
 test('navigation visible on desktop', async ({ page }) => {
   await page.setViewportSize({ width: 1280, height: 900 });
   await page.goto('http://localhost:3001');
-  const nav = page.locator('nav');
+  await page.waitForLoadState('networkidle');
+  const nav = page.getByRole('navigation', { name: 'Main navigation' });
   await expect(nav).toBeVisible();
+});
+
+test('hamburger menu works on mobile', async ({ page }) => {
+  await page.setViewportSize({ width: 375, height: 812 });
+  await page.goto('http://localhost:3001');
+  await page.waitForLoadState('networkidle');
+
+  const menuButton = page.locator('button[aria-controls="mobile-menu"]');
+  await expect(menuButton).toBeVisible();
+  await expect(menuButton).toHaveAttribute('aria-label', /open navigation/i);
+  await expect(menuButton).toHaveAttribute('aria-expanded', 'false');
+
+  await menuButton.click();
+
+  await expect(menuButton).toHaveAttribute('aria-label', /close navigation/i);
+  await expect(menuButton).toHaveAttribute('aria-expanded', 'true');
+  await expect(page.locator('#mobile-menu')).toBeVisible();
+  await expect(
+    page
+      .getByRole('navigation', { name: 'Mobile navigation' })
+      .getByRole('link', { name: 'Projects', exact: true })
+  ).toBeVisible();
 });
 
 test('all images load', async ({ page }) => {
@@ -77,9 +99,13 @@ test('all images load', async ({ page }) => {
 
 test('no console errors', async ({ page }) => {
   const errors: string[] = [];
+  page.on('pageerror', error => {
+    errors.push(error.message);
+  });
   page.on('console', msg => {
     if (msg.type() === 'error') errors.push(msg.text());
   });
+
   await page.goto('http://localhost:3001');
   await page.waitForLoadState('networkidle');
   expect(errors).toEqual([]);
