@@ -1,7 +1,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 import SectionHeading from "@/components/common/SectionHeading";
 import TechBadge from "@/components/common/TechBadge";
-import Marquee from "@/components/ui/Marquee";
+import Marquee from "@/components/UI/Marquee";
 
 const techStack = [
   "React", "Next.js", "Python", "Django",
@@ -86,11 +86,12 @@ export default function About() {
       {/* CV Download */}
       <div className="text-center">
         <a
-          href="/Axel_Auza_CV.pdf"
-          download
+          href="https://www.linkedin.com/in/axelauza/"
+          target="_blank"
+          rel="noopener noreferrer"
           className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-accent-purple text-accent-purple hover:bg-accent-purple hover:text-white transition-all"
         >
-          Download CV ↓
+          View LinkedIn Profile →
         </a>
       </div>
     </section>
