@@ -3,7 +3,7 @@ import Image from "next/image";
 import dynamic from "next/dynamic";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { Mail } from "lucide-react";
-import { Spotlight } from "@/components/ui/Spotlight";
+import { Spotlight } from "@/components/UI/Spotlight";
 
 const Typewriter = dynamic(() => import("typewriter-effect"), { ssr: false });
 
@@ -55,10 +55,8 @@ export default function Hero() {
       id="hero"
       className="relative min-h-screen flex items-center overflow-hidden bg-background"
     >
-      {/* Spotlight — pointer events managed inside component */}
-      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <Spotlight fill="cyan" />
-      </div>
+      {/* Spotlight — tracks mouse via onMouseMove inside the component */}
+      <Spotlight fill="cyan" className="absolute inset-0" />
 
       {/* Subtle dot grid background */}
       <div
@@ -83,18 +81,22 @@ export default function Hero() {
               <span className="gradient-text">Axel Auza</span>
             </h1>
 
-            {/* Typewriter roles */}
+            {/* Typewriter roles — static for reduced-motion users */}
             <div className="text-xl sm:text-2xl text-text-secondary font-medium mb-4 h-8">
-              <Typewriter
-                options={{
-                  strings: roles,
-                  autoStart: true,
-                  loop: true,
-                  delay: 60,
-                  deleteSpeed: 40,
-                  cursor: "|",
-                }}
-              />
+              {prefersReducedMotion ? (
+                <span>{roles[0]}</span>
+              ) : (
+                <Typewriter
+                  options={{
+                    strings: roles,
+                    autoStart: true,
+                    loop: true,
+                    delay: 60,
+                    deleteSpeed: 40,
+                    cursor: "|",
+                  }}
+                />
+              )}
             </div>
 
             <p className="text-text-secondary text-base mb-2 max-w-md">

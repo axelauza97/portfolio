@@ -24,11 +24,11 @@ export function Spotlight({ className = "", fill = "cyan" }) {
     <div
       ref={ref}
       onMouseMove={handleMouseMove}
-      className={`absolute inset-0 overflow-hidden pointer-events-none ${className}`}
+      className={`absolute inset-0 overflow-hidden ${className}`}
       aria-hidden="true"
     >
       <motion.div
-        className="absolute rounded-full blur-3xl"
+        className="absolute rounded-full blur-3xl pointer-events-none"
         animate={
           prefersReducedMotion
             ? { x: "30%", y: "-20%", opacity: 0.4 }
