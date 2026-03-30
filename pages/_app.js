@@ -26,7 +26,7 @@ export default function App({ Component, pageProps }) {
             abilities everyday pushing myself in new projects.!"
         />
         <meta name="keywords" content="Axel Auza, Next.js, Tailwind, FrontEnd, FullStack" />
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css" />
+        {/* water.css removed — replaced by design system in globals.css */}
       </Head>
       <Layout>
         <ModalProvider>
