@@ -1,18 +1,16 @@
-import { useState, useEffect, forwardRef } from "react";
+import { forwardRef } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import TechBadge from "./TechBadge";
 
 const ProjectCard = forwardRef(function ProjectCard({ project, index }, ref) {
   const prefersReducedMotion = useReducedMotion();
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
 
   return (
     <motion.div
       ref={ref}
-      initial={mounted && !prefersReducedMotion ? { opacity: 0, y: 30 } : false}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={false}
+      whileInView={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: prefersReducedMotion ? 0 : index * 0.1 }}
       viewport={{ once: true }}
       className="glass-card overflow-hidden group flex flex-col"
@@ -22,8 +20,9 @@ const ProjectCard = forwardRef(function ProjectCard({ project, index }, ref) {
         <Image
           src={project.image}
           alt={`${project.title} screenshot`}
-          fill
-          className="object-cover transition-transform duration-500 group-hover:scale-110"
+          width={576}
+          height={450}
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
         />
         {/* CTAs — hidden from interaction when not visible; revealed on hover or focus */}

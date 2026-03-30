@@ -6,7 +6,10 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { Mail } from "lucide-react";
 import { Spotlight } from "@/components/UI/Spotlight";
 
-const Typewriter = dynamic(() => import("typewriter-effect"), { ssr: false });
+const Typewriter = dynamic(() => import("typewriter-effect"), {
+  ssr: false,
+  loading: () => <span>Full Stack Developer</span>,
+});
 
 const socialLinks = [
   {
@@ -49,20 +52,8 @@ export default function Hero() {
     [prefersReducedMotion]
   );
 
-  const fadeLeft = {
-    initial: prefersReducedMotion ? false : { opacity: 0, x: -50 },
-    animate: { opacity: 1, x: 0 },
-    transition: { duration: 0.8 },
-  };
-
-  const fadeScale = {
-    initial: prefersReducedMotion ? false : { opacity: 0, scale: 0.85 },
-    animate: { opacity: 1, scale: 1 },
-    transition: { duration: 0.8, delay: 0.3 },
-  };
-
   return (
-    <section
+    <header
       id="hero"
       className="relative min-h-screen flex items-center overflow-hidden bg-background"
       onMouseMove={handleMouseMove}
@@ -84,7 +75,7 @@ export default function Hero() {
       <div className="section-container relative z-10 w-full">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left — Text */}
-          <motion.div {...fadeLeft}>
+          <motion.div initial={false}>
             <p className="text-accent-cyan font-mono text-sm mb-3 tracking-wider">
               Hi, I&apos;m
             </p>
@@ -94,7 +85,7 @@ export default function Hero() {
             </h1>
 
             {/* Typewriter roles — static for reduced-motion users */}
-            <div className="text-xl sm:text-2xl text-text-secondary font-medium mb-4 h-8">
+            <div className="text-xl sm:text-2xl text-text-secondary font-medium mb-4 min-h-[2rem]">
               {prefersReducedMotion ? (
                 <span>{roles[0]}</span>
               ) : (
@@ -111,8 +102,14 @@ export default function Hero() {
               )}
             </div>
 
-            <p className="text-text-secondary text-base mb-2 max-w-md">
-              Crafting innovative web applications with React &amp; Django.
+            <p className="text-text-secondary text-base mb-2 max-w-xl">
+              I design and ship production-ready interfaces, scalable Django
+              backends, and cloud infrastructure for teams that need fast,
+              reliable web products.
+            </p>
+            <p className="text-text-secondary text-base mb-2 max-w-xl">
+              My recent work spans real estate platforms, university research
+              tooling, and performance-focused frontend systems.
             </p>
             <p className="text-text-muted text-sm mb-8 font-mono">
               📍 Guayaquil, Ecuador
@@ -154,10 +151,7 @@ export default function Hero() {
           </motion.div>
 
           {/* Right — Profile Image */}
-          <motion.div
-            {...fadeScale}
-            className="relative flex justify-center"
-          >
+          <motion.div initial={false} className="relative flex justify-center">
             <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
               {/* Glow ring */}
               <div
@@ -171,8 +165,9 @@ export default function Hero() {
               <Image
                 src="/axel.avif"
                 alt="Axel Auza — Full Stack Developer"
-                fill
-                className="object-cover rounded-full border-2 border-white/10 relative z-10"
+                width={600}
+                height={600}
+                className="w-full h-full object-cover rounded-full border-2 border-white/10 relative z-10"
                 priority
                 sizes="(max-width: 640px) 256px, (max-width: 1024px) 320px, 384px"
               />
@@ -180,6 +175,6 @@ export default function Hero() {
           </motion.div>
         </div>
       </div>
-    </section>
+    </header>
   );
 }

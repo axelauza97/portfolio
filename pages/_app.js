@@ -17,18 +17,10 @@ export default function App({ Component, pageProps }) {
   return (
     <div className={`${inter.variable} ${jetbrainsMono.variable} font-sans`}>
       <Head>
-        <title>Full Stack Developer Axel Auza</title>
-        <meta
-          name="description"
-          content="Axel Auza portfolio.
-            My professional goal is to deliver well structure code that makes
-            people life easier or speed up tasks, also I like to improve my
-            abilities everyday pushing myself in new projects.!"
-        />
+        <meta name="author" content="Axel Auza" />
         <meta name="keywords" content="Axel Auza, Next.js, Tailwind, FrontEnd, FullStack" />
+        <meta name="theme-color" content="#0f172a" />
         <link rel="icon" href="/favicon.ico" />
-        <meta property="og:image" content="https://axelauza.com/axel.avif" />
-        <meta property="og:url" content="https://axelauza.com" />
       </Head>
       <Layout>
         <ModalProvider>

@@ -1,7 +1,3 @@
-import { useRef } from "react";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { experiences } from "@/mocks/experience";
 import SectionHeading from "@/components/common/SectionHeading";
 import TechBadge from "@/components/common/TechBadge";
@@ -23,42 +19,11 @@ const levelDotColors = {
 };
 
 export default function Experience() {
-  const containerRef = useRef(null);
-
-  useGSAP(
-    () => {
-      if (typeof window === "undefined") return;
-      gsap.registerPlugin(ScrollTrigger);
-      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-        return;
-      }
-      const cards = containerRef.current.querySelectorAll(".timeline-card");
-      cards.forEach((card, i) => {
-        gsap.fromTo(
-          card,
-          { opacity: 0, x: i % 2 === 0 ? -50 : 50, y: 20 },
-          {
-            opacity: 1,
-            x: 0,
-            y: 0,
-            duration: 0.8,
-            scrollTrigger: {
-              trigger: card,
-              start: "top 85%",
-              toggleActions: "play none none none",
-            },
-          }
-        );
-      });
-    },
-    { scope: containerRef }
-  );
-
   return (
-    <section id="experience" className="section-container">
+    <section id="experience" className="section-container overflow-x-clip">
       <SectionHeading title="Experience" subtitle="My professional journey" />
 
-      <div ref={containerRef} className="relative max-w-3xl mx-auto overflow-hidden">
+      <div className="relative max-w-3xl mx-auto overflow-x-clip">
         {/* Vertical line */}
         <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-white/10 -translate-x-1/2" />
 
@@ -76,7 +41,7 @@ export default function Experience() {
 
             {/* Card */}
             <div
-              className={`ml-10 md:ml-0 w-full md:w-[45%] min-w-0 ${
+              className={`w-[calc(100%-2.5rem)] md:w-[45%] ml-10 md:ml-0 min-w-0 ${
                 i % 2 === 0 ? "md:pr-12" : "md:pl-12"
               } glass-card p-6 border-l-4 ${levelColors[exp.level]}`}
             >
@@ -88,15 +53,15 @@ export default function Experience() {
                   {exp.duration}
                 </span>
               </div>
-              <h3 className="text-lg font-semibold text-white mb-1">
+              <h3 className="text-lg font-semibold text-white mb-1 break-words">
                 {exp.role}
               </h3>
-              <p className="text-accent-cyan text-sm mb-3">
+              <p className="text-accent-cyan text-sm mb-3 break-words">
                 {exp.company} · {exp.type}
               </p>
               <ul className="space-y-1 mb-4">
                 {exp.bullets.map((b, j) => (
-                  <li key={j} className="text-text-secondary text-sm flex gap-2">
+                  <li key={j} className="text-text-secondary text-sm flex gap-2 break-words">
                     <span className="text-accent-purple mt-1" aria-hidden="true">
                       ▸
                     </span>

@@ -1,16 +1,41 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true
-};
 const withVideos = require('next-videos');
 
-module.exports = nextConfig;
-module.exports = {
+const securityHeaders = [
+  { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
+  { key: 'X-Content-Type-Options', value: 'nosniff' },
+  { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
+  {
+    key: 'Permissions-Policy',
+    value: 'camera=(), microphone=(), geolocation=(), browsing-topics=()'
+  },
+  {
+    key: 'Content-Security-Policy',
+    value: [
+      "default-src 'self'",
+      "base-uri 'self'",
+      "frame-ancestors 'self'",
+      "form-action 'self' mailto:",
+      "img-src 'self' data: https:",
+      "media-src 'self' https:",
+      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://va.vercel-scripts.com",
+      "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+      "font-src 'self' https://fonts.gstatic.com",
+      "connect-src 'self' https://vitals.vercel-insights.com https://api.resend.com"
+    ].join('; ')
+  }
+];
+
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
   async headers() {
     return [
       {
-        // matching all API routes
         source: '/:path*',
+        headers: securityHeaders,
+      },
+      {
+        source: '/api/:path*',
         headers: [
           { key: 'Access-Control-Allow-Credentials', value: 'true' },
           { key: 'Access-Control-Allow-Origin', value: '*' },
@@ -22,12 +47,12 @@ module.exports = {
             key: 'Access-Control-Allow-Headers',
             value:
               'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
-          }
+          },
+          ...securityHeaders
         ]
       }
     ];
-  },
-  ...withVideos()
+  }
 };
 
-//module.exports = withVideos();
+module.exports = withVideos(nextConfig);
