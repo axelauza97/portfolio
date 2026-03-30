@@ -10,7 +10,7 @@ const metadata = {
   description:
     'Full Stack Developer building React, Django, and cloud-backed web products from Guayaquil, Ecuador.',
   canonical: 'https://axelauza.com',
-  ogImage: 'https://axelauza.com/og-image.svg',
+  ogImage: 'https://axelauza.com/og-image.png',
 };
 
 const structuredData = {
@@ -21,6 +21,7 @@ const structuredData = {
       name: 'Axel Auza Portfolio',
       url: metadata.canonical,
       description: metadata.description,
+      inLanguage: 'en',
     },
     {
       '@type': 'Person',
@@ -38,9 +39,15 @@ const structuredData = {
         'https://www.linkedin.com/in/axelauza/',
       ],
       knowsAbout: ['React', 'Next.js', 'Django', 'Python', 'Docker', 'Kubernetes'],
+      worksFor: {
+        '@type': 'Organization',
+        name: 'Independent Consultant',
+      },
     },
   ],
 };
+
+const structuredDataJson = JSON.stringify(structuredData).replace(/</g, '\\u003c');
 
 export default function Home() {
   return (
@@ -66,10 +73,7 @@ export default function Home() {
         <meta name="twitter:image" content={metadata.ogImage} />
         <link rel="canonical" href={metadata.canonical} />
         <link rel="sitemap" type="application/xml" href={`${metadata.canonical}/sitemap.xml`} />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-        />
+        <script type="application/ld+json">{structuredDataJson}</script>
       </Head>
 
       <Hero />

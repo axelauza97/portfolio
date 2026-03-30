@@ -1,3 +1,4 @@
+import Head from "next/head";
 import classes from "styles/Experience.module.css";
 import { FontAwesomeIcon } from "../../utils/fontawesome";
 import Button from "@/components/UI/Button";
@@ -6,12 +7,37 @@ import { experiences } from "@/mocks/experience";
 
 function ExperiencePage(props) {
   return (
-    <main className={classes.main}>
-      <h1 className={classes.title}>Experience</h1>
-      <article>
-        <ExperiencesList experiences={props.experiences} />
-      </article>
-    </main>
+    <>
+      <Head>
+        <title>Experience — Axel Auza</title>
+        <meta
+          name="description"
+          content="Professional experience, delivery highlights, and technology stack used by Axel Auza across product, research, and full stack roles."
+        />
+        <meta property="og:title" content="Experience — Axel Auza" />
+        <meta
+          property="og:description"
+          content="Professional experience, delivery highlights, and technology stack used by Axel Auza."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://axelauza.com/experience" />
+        <meta property="og:image" content="https://axelauza.com/og-image.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Experience — Axel Auza" />
+        <meta
+          name="twitter:description"
+          content="Professional experience, delivery highlights, and technology stack used by Axel Auza."
+        />
+        <link rel="canonical" href="https://axelauza.com/experience" />
+      </Head>
+
+      <main className={classes.main}>
+        <h1 className={classes.title}>Experience</h1>
+        <article>
+          <ExperiencesList experiences={props.experiences} />
+        </article>
+      </main>
+    </>
   );
 }
 export async function getStaticProps() {
