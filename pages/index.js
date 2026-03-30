@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import classes from 'styles/Home.module.css';
 import portfolioImage from 'public/portfolioImage.avif';
 import bazarImage from 'public/bazarImage.avif';
@@ -35,6 +36,18 @@ export default function Home(props) {
   }, [showModal, setShowModal]);
   return (
     <>
+      <Head>
+        <title>Axel Auza — Full Stack Developer</title>
+        <meta name="description" content="Full Stack Developer specializing in React and Django. Building innovative web applications from Guayaquil, Ecuador." />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta property="og:title" content="Axel Auza — Full Stack Developer" />
+        <meta property="og:description" content="Full Stack Developer specializing in React and Django. Building innovative web applications from Guayaquil, Ecuador." />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Axel Auza — Full Stack Developer" />
+        <meta name="twitter:description" content="Full Stack Developer specializing in React and Django." />
+        <link rel="canonical" href="https://axelauza.com" />
+      </Head>
       <Hero />
       {showModal ? <Modal /> : ''}
       {isLoading.isLoading ? <Loader /> : ''}
