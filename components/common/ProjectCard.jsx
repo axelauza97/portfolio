@@ -1,15 +1,16 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, forwardRef } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import TechBadge from "./TechBadge";
 
-export default function ProjectCard({ project, index }) {
+const ProjectCard = forwardRef(function ProjectCard({ project, index }, ref) {
   const prefersReducedMotion = useReducedMotion();
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
 
   return (
     <motion.div
+      ref={ref}
       initial={mounted && !prefersReducedMotion ? { opacity: 0, y: 30 } : false}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: prefersReducedMotion ? 0 : index * 0.1 }}
@@ -25,8 +26,8 @@ export default function ProjectCard({ project, index }) {
           className="object-cover transition-transform duration-500 group-hover:scale-110"
           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
         />
-        {/* CTAs — visible on hover AND on focus-within for keyboard users */}
-        <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent opacity-0 group-hover:opacity-100 focus-within:opacity-100 transition-opacity duration-300 flex items-end p-4">
+        {/* CTAs — hidden from interaction when not visible; revealed on hover or focus */}
+        <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto group-focus-within:opacity-100 group-focus-within:pointer-events-auto transition-opacity duration-300 flex items-end p-4">
           <div className="flex gap-3">
             {project.liveUrl && (
               <a
@@ -57,7 +58,15 @@ export default function ProjectCard({ project, index }) {
         <h3 className="text-lg font-semibold text-text-primary mb-2">
           {project.title}
         </h3>
-        <p className="text-text-secondary text-sm mb-4 line-clamp-2 flex-1">
+        <p
+          className="text-text-secondary text-sm mb-4 flex-1"
+          style={{
+            display: "-webkit-box",
+            WebkitLineClamp: 2,
+            WebkitBoxOrient: "vertical",
+            overflow: "hidden",
+          }}
+        >
           {project.description}
         </p>
         <div className="flex flex-wrap gap-2">
@@ -68,4 +77,6 @@ export default function ProjectCard({ project, index }) {
       </div>
     </motion.div>
   );
-}
+});
+
+export default ProjectCard;
