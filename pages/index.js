@@ -3,27 +3,7 @@ import Hero from '@/components/sections/Hero';
 import Projects from '@/components/sections/Projects';
 import Experience from '@/components/sections/Experience';
 import About from '@/components/sections/About';
-import Button from '@/components/UI/Button';
-import { useContext, useEffect } from 'react';
-import { ModalContext } from '@/context/modal';
-import { LoaderContext } from '@/context/loader';
-import { Modal } from '@/components/UI/Modal';
-import { Loader } from '@/components/UI/Loader';
-import { disableScroll, enableScroll } from '@/utils/scroll';
-import classes from 'styles/Home.module.css';
-
 export default function Home() {
-  const { showModal, setShowModal } = useContext(ModalContext);
-  const { isLoading } = useContext(LoaderContext);
-
-  useEffect(() => {
-    if (showModal) {
-      disableScroll();
-    } else {
-      enableScroll();
-    }
-  }, [showModal]);
-
   return (
     <>
       <Head>
@@ -40,17 +20,19 @@ export default function Home() {
       </Head>
 
       <Hero />
-      {showModal && <Modal />}
-      {isLoading?.isLoading && <Loader />}
-
-      {/* Temporary contact button — will be replaced in Phase 8 */}
-      <div id="contact" className={classes.contactButton}>
-        <Button onClick={() => setShowModal((prev) => !prev)}>Contact me!</Button>
-      </div>
-
       <Projects />
       <Experience />
       <About />
+
+      {/* Contact placeholder — will be replaced in Phase 8 */}
+      <section id="contact" className="section-container text-center">
+        <a
+          href="mailto:axelauza97@hotmail.com"
+          className="inline-block px-8 py-4 rounded-full bg-gradient-to-r from-accent-cyan to-accent-purple text-white font-medium text-lg hover:shadow-lg hover:shadow-accent-purple/25 transition-all"
+        >
+          Say Hello
+        </a>
+      </section>
     </>
   );
 }

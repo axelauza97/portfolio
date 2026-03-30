@@ -58,7 +58,7 @@ export default function Experience() {
     <section id="experience" className="section-container">
       <SectionHeading title="Experience" subtitle="My professional journey" />
 
-      <div ref={containerRef} className="relative max-w-3xl mx-auto">
+      <div ref={containerRef} className="relative max-w-3xl mx-auto overflow-hidden">
         {/* Vertical line */}
         <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-white/10 -translate-x-1/2" />
 
@@ -76,7 +76,7 @@ export default function Experience() {
 
             {/* Card */}
             <div
-              className={`ml-10 md:ml-0 md:w-[45%] ${
+              className={`ml-10 md:ml-0 w-full md:w-[45%] min-w-0 ${
                 i % 2 === 0 ? "md:pr-12" : "md:pl-12"
               } glass-card p-6 border-l-4 ${levelColors[exp.level]}`}
             >
