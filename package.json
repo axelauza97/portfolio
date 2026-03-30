@@ -36,6 +36,7 @@
     "typewriter-effect": "^2.22.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.58.2",
     "autoprefixer": "^10.4.17",
     "postcss": "^8.4.34",
     "prettier": "^3.2.5",

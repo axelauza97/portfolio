@@ -1,3 +1,4 @@
+import { useState, useCallback } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import dynamic from "next/dynamic";
@@ -37,6 +38,16 @@ const roles = [
 
 export default function Hero() {
   const prefersReducedMotion = useReducedMotion();
+  const [spotPos, setSpotPos] = useState({ x: 0, y: 0 });
+
+  const handleMouseMove = useCallback(
+    (e) => {
+      if (prefersReducedMotion) return;
+      const rect = e.currentTarget.getBoundingClientRect();
+      setSpotPos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+    },
+    [prefersReducedMotion]
+  );
 
   const fadeLeft = {
     initial: prefersReducedMotion ? false : { opacity: 0, x: -50 },
@@ -54,9 +65,10 @@ export default function Hero() {
     <section
       id="hero"
       className="relative min-h-screen flex items-center overflow-hidden bg-background"
+      onMouseMove={handleMouseMove}
     >
-      {/* Spotlight — tracks mouse via onMouseMove inside the component */}
-      <Spotlight fill="cyan" className="absolute inset-0" />
+      {/* Spotlight — receives position from section-level mouse tracking */}
+      <Spotlight fill="cyan" className="absolute inset-0" position={spotPos} />
 
       {/* Subtle dot grid background */}
       <div
