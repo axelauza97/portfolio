@@ -50,8 +50,16 @@ export default function Projects() {
         </AnimatePresence>
       </motion.div>
 
-      {/* GitHub link */}
-      <div className="text-center mt-12">
+      {/* GitHub Stats + link */}
+      <div className="text-center mt-12 space-y-6">
+        <img
+          src="https://github-readme-stats.vercel.app/api?username=axelauza97&show_icons=true&theme=transparent&hide_border=true&text_color=94a3b8&icon_color=06b6d4&title_color=8b5cf6"
+          alt="Axel Auza GitHub stats — commits, PRs, and contribution activity"
+          width={495}
+          height={195}
+          className="mx-auto max-w-full"
+          loading="lazy"
+        />
         <a
           href="https://github.com/axelauza97"
           target="_blank"
