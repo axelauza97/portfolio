@@ -65,6 +65,17 @@
 }
 
 /* ============================================================
+   Accessibility — disable all motion for users who prefer it
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ============================================================
    Legacy carousel styles — used by existing components.
    DO NOT remove these until the carousel is fully replaced.
    ============================================================ */

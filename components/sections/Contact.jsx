@@ -1,6 +1,9 @@
+import { motion, useReducedMotion } from "framer-motion";
 import SectionHeading from "@/components/common/SectionHeading";
 
 export default function Contact() {
+  const prefersReducedMotion = useReducedMotion();
+
   return (
     <section id="contact" className="section-container">
       <SectionHeading
@@ -8,7 +11,13 @@ export default function Contact() {
         subtitle="I'm currently open to new opportunities"
       />
 
-      <div className="mx-auto max-w-lg text-center">
+      <motion.div
+        initial={prefersReducedMotion ? false : { opacity: 0, y: 24 }}
+        whileInView={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-60px" }}
+        transition={{ duration: 0.5 }}
+        className="mx-auto max-w-lg text-center"
+      >
         <p className="mb-8 text-text-secondary">
           Whether you have a question, a project idea, or just want to say hi,
           my inbox is always open.
@@ -19,7 +28,7 @@ export default function Contact() {
         >
           Email Axel
         </a>
-      </div>
+      </motion.div>
     </section>
   );
 }

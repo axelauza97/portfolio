@@ -9,10 +9,10 @@ const ProjectCard = forwardRef(function ProjectCard({ project, index }, ref) {
   return (
     <motion.div
       ref={ref}
-      initial={false}
+      initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
       whileInView={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: prefersReducedMotion ? 0 : index * 0.1 }}
-      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: prefersReducedMotion ? 0 : index * 0.08 }}
+      viewport={{ once: true, margin: "-40px" }}
       className="glass-card overflow-hidden group flex flex-col"
     >
       {/* Image with hover zoom */}

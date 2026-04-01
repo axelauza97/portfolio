@@ -1,3 +1,5 @@
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
+import { useRouter } from 'next/router';
 import Layout from '@/components/layout/Layout';
 import '@/styles/globals.css';
 import '@fortawesome/fontawesome-svg-core/styles.css';
@@ -15,7 +17,29 @@ const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-mon
 config.autoAddCss = false;
 const isProduction = process.env.NODE_ENV === 'production';
 
+function PageTransition({ children, routeKey }) {
+  const prefersReducedMotion = useReducedMotion();
+
+  if (prefersReducedMotion) return <>{children}</>;
+
+  return (
+    <AnimatePresence mode="wait">
+      <motion.div
+        key={routeKey}
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -8 }}
+        transition={{ duration: 0.25, ease: 'easeInOut' }}
+      >
+        {children}
+      </motion.div>
+    </AnimatePresence>
+  );
+}
+
 export default function App({ Component, pageProps }) {
+  const router = useRouter();
+
   return (
     <div className={`${inter.variable} ${jetbrainsMono.variable} font-sans`}>
       <Head>
@@ -27,7 +51,9 @@ export default function App({ Component, pageProps }) {
       <Layout>
         <ModalProvider>
           <LoaderProvider>
-            <Component {...pageProps} />
+            <PageTransition routeKey={router.pathname}>
+              <Component {...pageProps} />
+            </PageTransition>
           </LoaderProvider>
         </ModalProvider>
         {isProduction ? <Analytics /> : null}

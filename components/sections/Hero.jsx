@@ -75,7 +75,11 @@ export default function Hero() {
       <div className="section-container relative z-10 w-full">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left — Text */}
-          <motion.div initial={false}>
+          <motion.div
+            initial={prefersReducedMotion ? false : { opacity: 0, x: -30 }}
+            animate={prefersReducedMotion ? undefined : { opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+          >
             <p className="text-accent-cyan font-mono text-sm mb-3 tracking-wider">
               Hi, I&apos;m
             </p>
@@ -151,7 +155,12 @@ export default function Hero() {
           </motion.div>
 
           {/* Right — Profile Image */}
-          <motion.div initial={false} className="relative flex justify-center">
+          <motion.div
+            initial={prefersReducedMotion ? false : { opacity: 0, x: 30 }}
+            animate={prefersReducedMotion ? undefined : { opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}
+            className="relative flex justify-center"
+          >
             <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
               {/* Glow ring */}
               <div

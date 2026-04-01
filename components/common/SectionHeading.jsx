@@ -5,9 +5,10 @@ export default function SectionHeading({ title, subtitle }) {
 
   return (
     <motion.div
-      initial={false}
-      animate={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
-      transition={{ duration: 0.4 }}
+      initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
+      whileInView={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.5 }}
       className="text-center mb-16"
     >
       <h2 className="text-3xl sm:text-4xl font-bold gradient-text inline-block mb-4">

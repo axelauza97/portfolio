@@ -28,6 +28,12 @@ const securityHeaders = [
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  async redirects() {
+    return [
+      { source: '/about', destination: '/#about', permanent: true },
+      { source: '/experience', destination: '/#experience', permanent: true },
+    ];
+  },
   async headers() {
     return [
       {
