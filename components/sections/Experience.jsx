@@ -96,20 +96,20 @@ export default function Experience() {
         {experiences.map((exp, i) => (
           <div
             key={i}
-            className={`timeline-card relative flex items-start mb-12 ${
+            className={`timeline-card relative flex items-start mb-8 md:mb-12 ${
               i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
             }`}
           >
             {/* Dot */}
             <div
-              className={`absolute left-4 md:left-1/2 w-4 h-4 rounded-full ${levelDotColors[exp.level]} -translate-x-1/2 border-4 border-background z-10`}
+              className={`absolute left-3 md:left-1/2 w-3 h-3 rounded-full ${levelDotColors[exp.level]} -translate-x-1/2 border-2 border-background z-10 mt-5`}
             />
 
             {/* Card */}
             <div
-              className={`w-[calc(100%-2.5rem)] md:w-[45%] ml-10 md:ml-0 min-w-0 ${
+              className={`w-[calc(100%-1.75rem)] md:w-[45%] ml-7 md:ml-0 min-w-0 ${
                 i % 2 === 0 ? "md:pr-12" : "md:pl-12"
-              } glass-card p-6 border-l-4 ${levelColors[exp.level]}`}
+              } glass-card p-4 md:p-6 border-l-4 ${levelColors[exp.level]}`}
             >
               <div className="flex items-center justify-between mb-2">
                 <span className="text-xs font-mono text-text-muted">
