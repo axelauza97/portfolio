@@ -33,7 +33,13 @@ export default function Experience() {
         "(prefers-reduced-motion: reduce)"
       ).matches;
 
-      if (prefersReducedMotion) return;
+      if (prefersReducedMotion) {
+        // Make all cards visible immediately
+        containerRef.current
+          .querySelectorAll(".timeline-card")
+          .forEach((el) => (el.style.opacity = "1"));
+        return;
+      }
 
       const [{ default: gsap }, { ScrollTrigger }] = await Promise.all([
         import("gsap"),
@@ -57,7 +63,7 @@ export default function Experience() {
               {
                 x: index % 2 === 0 ? -24 : 24,
                 y: 16,
-                opacity: 0.2,
+                opacity: 0,
               },
               {
                 x: 0,
@@ -96,7 +102,7 @@ export default function Experience() {
         {experiences.map((exp, i) => (
           <div
             key={i}
-            className={`timeline-card relative flex items-start mb-8 md:mb-12 ${
+            className={`timeline-card relative flex items-start mb-8 md:mb-12 opacity-0 ${
               i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
             }`}
           >

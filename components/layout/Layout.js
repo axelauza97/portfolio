@@ -11,7 +11,7 @@ function Layout(props) {
         Skip to main content
       </a>
       <Navbar />
-      <main id="main-content" className="pt-16">{props.children}</main>
+      <main id="main-content" className="pt-16 overflow-x-hidden">{props.children}</main>
       <Footer />
     </div>
   );

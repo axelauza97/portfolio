@@ -73,6 +73,11 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+
+  /* Ensure GSAP-animated timeline cards remain visible */
+  .timeline-card {
+    opacity: 1 !important;
+  }
 }
 
 /* ============================================================

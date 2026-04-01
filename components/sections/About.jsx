@@ -24,11 +24,18 @@ export default function About() {
         transition={{ duration: 0.5 }}
         className="max-w-2xl mx-auto text-center mb-12"
       >
-        <p className="text-text-secondary text-lg leading-relaxed">
+        <p className="text-text-secondary text-lg leading-relaxed mb-4">
           Full Stack Developer based in Guayaquil, Ecuador. I build scalable
           web applications and cloud infrastructure — from pixel-perfect React
           UIs to Kubernetes pipelines. I enjoy pushing code that makes a real
           difference.
+        </p>
+        <p className="text-text-secondary text-base leading-relaxed">
+          I specialize in React and Next.js on the frontend, Django and Python
+          on the backend, and Docker and GCP for deployment. Whether it&apos;s
+          a university research platform, a real estate app, or a microservice
+          architecture, I focus on clean code, fast delivery, and long-term
+          maintainability.
         </p>
       </motion.div>
 
