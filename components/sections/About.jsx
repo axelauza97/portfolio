@@ -105,7 +105,7 @@ export default function About() {
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-accent-purple text-accent-purple hover:bg-accent-purple hover:text-white transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-purple focus-visible:ring-offset-2 focus-visible:ring-offset-background"
         >
-          View Resume on LinkedIn →
+          Connect on LinkedIn →
         </a>
       </div>
     </section>
