@@ -20,7 +20,7 @@ const socialLinks = [
   },
   {
     name: "LinkedIn",
-    href: "https://linkedin.com/in/axelauza",
+    href: "https://www.linkedin.com/in/axelauza/",
     icon: FaLinkedin,
     external: true,
   },
@@ -101,6 +101,7 @@ export default function Hero() {
                     delay: 60,
                     deleteSpeed: 40,
                     cursor: "|",
+                    pauseFor: 1500,
                   }}
                 />
               )}

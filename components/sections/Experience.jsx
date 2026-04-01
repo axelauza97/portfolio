@@ -33,13 +33,7 @@ export default function Experience() {
         "(prefers-reduced-motion: reduce)"
       ).matches;
 
-      if (prefersReducedMotion) {
-        // Make all cards visible immediately
-        containerRef.current
-          .querySelectorAll(".timeline-card")
-          .forEach((el) => (el.style.opacity = "1"));
-        return;
-      }
+      if (prefersReducedMotion) return;
 
       const [{ default: gsap }, { ScrollTrigger }] = await Promise.all([
         import("gsap"),
@@ -51,6 +45,10 @@ export default function Experience() {
       gsap.registerPlugin(ScrollTrigger);
 
       const cards = gsap.utils.toArray(".timeline-card", containerRef.current);
+
+      // Set initial hidden state via GSAP (not static HTML) so cards stay
+      // visible without JS and are only hidden once GSAP is ready
+      gsap.set(cards, { opacity: 0, x: 0, y: 16 });
 
       const triggers = cards.map((card, index) =>
         ScrollTrigger.create({
@@ -102,7 +100,7 @@ export default function Experience() {
         {experiences.map((exp, i) => (
           <div
             key={i}
-            className={`timeline-card relative flex items-start mb-8 md:mb-12 opacity-0 ${
+            className={`timeline-card relative flex items-start mb-8 md:mb-12 ${
               i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
             }`}
           >

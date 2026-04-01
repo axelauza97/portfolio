@@ -8,7 +8,7 @@ import Contact from '@/components/sections/Contact';
 const metadata = {
   title: 'Axel Auza — Full Stack Developer',
   description:
-    'Axel Auza — Full Stack Developer specializing in React, Next.js, Django, and cloud infrastructure. Building fast, reliable web products from Guayaquil, Ecuador.',
+    'Full Stack Developer specializing in React, Next.js, Django, and cloud infrastructure. Based in Guayaquil, Ecuador.',
   canonical: 'https://axelauza.com',
   ogImage: 'https://axelauza.com/og-image.png',
 };
