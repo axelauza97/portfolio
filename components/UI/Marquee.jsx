@@ -13,23 +13,16 @@ export default function Marquee({ children, pauseOnHover = false, className = ""
 
   return (
     <div
-      className={`relative w-full max-w-full overflow-hidden [--duration:30s] ${className}`}
+      className={`relative w-full overflow-x-hidden [--duration:30s] ${className}`}
       style={{ maskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)" }}
     >
       <div
-        className={`flex w-max min-w-max gap-0 animate-[marquee_var(--duration)_linear_infinite] ${
+        className={`flex w-max animate-[marquee_var(--duration)_linear_infinite] ${
           pauseOnHover ? "hover:[animation-play-state:paused]" : ""
         }`}
       >
-        {children}
-      </div>
-      <div
-        className={`absolute left-full top-0 flex w-max min-w-max gap-0 animate-[marquee_var(--duration)_linear_infinite] ${
-          pauseOnHover ? "hover:[animation-play-state:paused]" : ""
-        }`}
-        aria-hidden="true"
-      >
-        {children}
+        <div className="flex shrink-0">{children}</div>
+        <div className="flex shrink-0" aria-hidden="true">{children}</div>
       </div>
     </div>
   );

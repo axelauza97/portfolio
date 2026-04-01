@@ -8,7 +8,7 @@ import Contact from '@/components/sections/Contact';
 const metadata = {
   title: 'Axel Auza — Full Stack Developer',
   description:
-    'Full Stack Developer building React, Django, and cloud-backed web products with a strong focus on performance, UX, and reliable delivery.',
+    'Full Stack Developer specializing in React, Django, and cloud infrastructure. Based in Guayaquil, Ecuador.',
   canonical: 'https://axelauza.com',
   ogImage: 'https://axelauza.com/og-image.png',
 };
