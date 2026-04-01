@@ -35,6 +35,7 @@ const ProjectCard = forwardRef(function ProjectCard({ project, index }, ref) {
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={`Live demo of ${project.title}`}
                 className="px-4 py-2 rounded-full bg-accent-cyan text-background text-sm font-medium hover:bg-accent-cyan/80 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
               >
                 Live Demo
@@ -45,6 +46,7 @@ const ProjectCard = forwardRef(function ProjectCard({ project, index }, ref) {
                 href={project.sourceUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={`Source code for ${project.title}`}
                 className="px-4 py-2 rounded-full border border-white/30 text-text-primary text-sm font-medium hover:bg-white/10 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
               >
                 Source Code
