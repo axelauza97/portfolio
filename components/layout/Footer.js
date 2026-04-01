@@ -5,12 +5,12 @@ function Footer() {
     <footer className="border-t border-white/10 py-8">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-          <p className="text-sm text-text-muted">
+          <p className="text-sm text-text-secondary">
             Built with Next.js &amp; Tailwind CSS
           </p>
           <nav
             aria-label="Footer navigation"
-            className="flex flex-wrap gap-6 text-sm text-text-muted"
+            className="flex flex-wrap gap-6 text-sm text-text-secondary"
           >
             <a
               href="https://github.com/axelauza97"
