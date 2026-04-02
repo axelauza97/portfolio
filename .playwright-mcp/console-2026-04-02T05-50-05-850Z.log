@@ -1,7 +1,0 @@
-[     285ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ webpack-internal:///./node_modules/react-dom/cjs/react-dom.development.js:29834
-[     310ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///./node_modules/next/dist/client/dev/error-overlay/hot-dev-client.js:179
-[     740ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/2935612a0ab3f0c3.webpack.hot-update.json:0
-[    1051ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ webpack-internal:///./node_modules/react-dom/cjs/react-dom.development.js:29834
-[  161386ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///./node_modules/next/dist/client/dev/error-overlay/hot-dev-client.js:179
-[  162485ms] [LOG] [Fast Refresh] done in 1099ms @ webpack-internal:///./node_modules/next/dist/client/dev/error-overlay/hot-dev-client.js:155
-[  165688ms] [WARNING] The resource http://localhost:3000/_next/image?url=%2Faxel.avif&w=256&q=75 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/:0

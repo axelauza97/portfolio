@@ -52,3 +52,6 @@ REDESIGN_GUIDE.md
 .pipeline
 .codex
 .claude
+
+# Playwright MCP session files
+.playwright-mcp/
