@@ -14,7 +14,10 @@ export default function Marquee({ children, pauseOnHover = false, className = ""
   return (
     <div
       className={`relative w-full overflow-x-hidden [--duration:30s] ${className}`}
-      style={{ maskImage: "linear-gradient(to right, transparent, black 15%, black 85%, transparent)" }}
+      style={{
+        maskImage: "linear-gradient(to right, transparent, black 15%, black 85%, transparent)",
+        WebkitMaskImage: "linear-gradient(to right, transparent, black 15%, black 85%, transparent)",
+      }}
     >
       <div
         className={`flex w-max animate-[marquee_var(--duration)_linear_infinite] ${
