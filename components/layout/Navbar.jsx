@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
+import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
@@ -109,35 +110,29 @@ export default function Navbar() {
             aria-expanded={mobileOpen}
             aria-controls="mobile-menu"
           >
-            <motion.div
-              animate={mobileOpen ? "open" : "closed"}
-              className="w-6 h-5 flex flex-col justify-between"
-            >
-              <motion.span
-                variants={{
-                  open: { rotate: 45, y: 10 },
-                  closed: { rotate: 0, y: 0 },
-                }}
-                transition={{ duration: prefersReducedMotion ? 0 : 0.2 }}
-                className="block h-0.5 w-6 bg-text-primary origin-center"
-              />
-              <motion.span
-                variants={{
-                  open: { opacity: 0, scaleX: 0 },
-                  closed: { opacity: 1, scaleX: 1 },
-                }}
-                transition={{ duration: prefersReducedMotion ? 0 : 0.2 }}
-                className="block h-0.5 w-6 bg-text-primary"
-              />
-              <motion.span
-                variants={{
-                  open: { rotate: -45, y: -10 },
-                  closed: { rotate: 0, y: 0 },
-                }}
-                transition={{ duration: prefersReducedMotion ? 0 : 0.2 }}
-                className="block h-0.5 w-6 bg-text-primary origin-center"
-              />
-            </motion.div>
+            <AnimatePresence mode="wait" initial={false}>
+              {mobileOpen ? (
+                <motion.span
+                  key="close"
+                  initial={{ rotate: -90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: 90, opacity: 0 }}
+                  transition={{ duration: prefersReducedMotion ? 0 : 0.15 }}
+                >
+                  <X size={20} aria-hidden="true" />
+                </motion.span>
+              ) : (
+                <motion.span
+                  key="open"
+                  initial={{ rotate: 90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: -90, opacity: 0 }}
+                  transition={{ duration: prefersReducedMotion ? 0 : 0.15 }}
+                >
+                  <Menu size={20} aria-hidden="true" />
+                </motion.span>
+              )}
+            </AnimatePresence>
           </button>
         </div>
       </div>
