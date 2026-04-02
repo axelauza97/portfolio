@@ -9,12 +9,12 @@ import Head from 'next/head';
 import { Analytics } from '@vercel/analytics/react';
 import { ModalProvider } from '@/context/modal';
 import { LoaderProvider } from '@/context/loader';
-import { Inter, JetBrains_Mono, Syne } from 'next/font/google';
+import { Inter, JetBrains_Mono, Space_Grotesk } from 'next/font/google';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-mono' });
-// Syne: geometric display font for headings — distinctive character vs generic Inter
-const syne = Syne({ subsets: ['latin'], variable: '--font-display', weight: ['700', '800'] });
+// Space Grotesk: geometric, sharp, modern — used by Supabase, Resend, PostHog
+const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], variable: '--font-display', weight: ['700'] });
 
 config.autoAddCss = false;
 const isProduction = process.env.NODE_ENV === 'production';
@@ -43,11 +43,11 @@ export default function App({ Component, pageProps }) {
   const router = useRouter();
 
   return (
-    <div className={`${inter.variable} ${jetbrainsMono.variable} ${syne.variable} font-sans`}>
+    <div className={`${inter.variable} ${jetbrainsMono.variable} ${spaceGrotesk.variable} font-sans`}>
       <Head>
         <meta name="author" content="Axel Auza" />
         <meta name="keywords" content="Axel Auza, Next.js, Tailwind, FrontEnd, FullStack" />
-        <meta name="theme-color" content="#0f172a" />
+        <meta name="theme-color" content="#050d1f" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>

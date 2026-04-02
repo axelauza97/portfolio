@@ -16,7 +16,7 @@ function Footer() {
               href="https://github.com/axelauza97"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-accent-cyan transition-colors duration-200"
+              className="hover:text-accent-blue transition-colors duration-200"
             >
               GitHub
             </a>
@@ -24,17 +24,17 @@ function Footer() {
               href="https://www.linkedin.com/in/axelauza/"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-accent-cyan transition-colors duration-200"
+              className="hover:text-accent-blue transition-colors duration-200"
             >
               LinkedIn
             </a>
             <a
               href="mailto:axelauza97@hotmail.com"
-              className="hover:text-accent-cyan transition-colors duration-200"
+              className="hover:text-accent-blue transition-colors duration-200"
             >
               Email
             </a>
-            <Link href="/privacy" className="hover:text-accent-cyan transition-colors duration-200">
+            <Link href="/privacy" className="hover:text-accent-blue transition-colors duration-200">
               Privacy
             </Link>
           </nav>

@@ -93,7 +93,7 @@ export default function Navbar() {
                 >
                   {item.name}
                   <span
-                    className={`absolute -bottom-1 left-0 h-0.5 bg-accent-purple transition-all duration-300 ${
+                    className={`absolute -bottom-1 left-0 h-0.5 bg-accent-teal transition-all duration-300 ${
                       active ? "w-full" : "w-0 group-hover:w-full"
                     }`}
                   />
@@ -105,7 +105,7 @@ export default function Navbar() {
           {/* Mobile Hamburger */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden text-text-primary p-2 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-purple"
+            className="md:hidden text-text-primary p-2 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-teal"
             aria-label={mobileOpen ? "Close navigation" : "Open navigation"}
             aria-expanded={mobileOpen}
             aria-controls="mobile-menu"

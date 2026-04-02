@@ -88,7 +88,7 @@ export default function Hero() {
             <div className="relative w-36 h-36 sm:w-48 sm:h-48 md:w-72 md:h-72 lg:w-96 lg:h-96">
               {/* Glow ring */}
               <div
-                className="absolute inset-0 rounded-full blur-2xl md:blur-3xl opacity-30 bg-gradient-to-r from-accent-cyan via-accent-purple to-accent-pink"
+                className="absolute inset-0 rounded-full blur-2xl md:blur-3xl opacity-30 bg-gradient-to-r from-accent-blue via-accent-teal to-accent-blue"
                 aria-hidden="true"
               />
               <Image
@@ -110,7 +110,7 @@ export default function Hero() {
             transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
             className="text-center md:text-left order-last md:order-first"
           >
-            <p className="text-accent-cyan font-mono text-sm mb-3 tracking-wider">
+            <p className="text-accent-blue font-mono text-sm mb-3 tracking-wider">
               Hi, I&apos;m
             </p>
 
@@ -154,13 +154,13 @@ export default function Hero() {
             <div className="flex flex-wrap justify-center md:justify-start gap-4 mb-8">
               <a
                 href="#projects"
-                className="px-6 py-3 rounded-full bg-gradient-to-r from-accent-cyan to-accent-purple text-white font-medium hover:shadow-lg hover:shadow-accent-purple/25 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-purple"
+                className="px-6 py-3 rounded-full bg-gradient-to-r from-accent-blue to-accent-teal text-white font-medium hover:shadow-lg hover:shadow-accent-teal/25 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-teal"
               >
                 View Projects
               </a>
               <a
                 href="#contact"
-                className="px-6 py-3 rounded-full border border-white/20 text-text-primary font-medium hover:bg-white/5 hover:border-white/40 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-purple"
+                className="px-6 py-3 rounded-full border border-white/20 text-text-primary font-medium hover:bg-white/5 hover:border-white/40 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-teal"
               >
                 Contact Me
               </a>
@@ -177,7 +177,7 @@ export default function Hero() {
                   {...(external
                     ? { target: "_blank", rel: "noopener noreferrer" }
                     : {})}
-                  className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-text-secondary hover:text-accent-cyan hover:border-accent-cyan transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-cyan"
+                  className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-text-secondary hover:text-accent-blue hover:border-accent-blue transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-blue"
                 >
                   <Icon size={18} aria-hidden="true" />
                 </a>

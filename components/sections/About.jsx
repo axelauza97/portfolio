@@ -68,10 +68,10 @@ export default function About() {
         transition={{ duration: 0.5 }}
         className="max-w-2xl mx-auto mb-8"
       >
-        <div className="glass-card p-6 border border-accent-cyan/20">
+        <div className="glass-card p-6 border border-accent-blue/20">
           <div className="flex items-start gap-4">
             <div
-              className="w-12 h-12 rounded-lg bg-accent-cyan/10 flex items-center justify-center flex-shrink-0 text-2xl"
+              className="w-12 h-12 rounded-lg bg-accent-blue/10 flex items-center justify-center flex-shrink-0 text-2xl"
               aria-hidden="true"
             >
               🎓
@@ -89,7 +89,7 @@ export default function About() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Watch thesis demo on YouTube (opens in new tab)"
-                className="text-accent-cyan text-sm font-mono hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-cyan focus-visible:ring-offset-1 focus-visible:ring-offset-background rounded"
+                className="text-accent-blue text-sm font-mono hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-blue focus-visible:ring-offset-1 focus-visible:ring-offset-background rounded"
               >
                 Watch Thesis Demo →
               </a>
@@ -104,7 +104,7 @@ export default function About() {
           href="https://www.linkedin.com/in/axelauza/"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-accent-purple text-accent-purple hover:bg-accent-purple hover:text-white transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-purple focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-accent-teal text-accent-teal hover:bg-accent-teal hover:text-white transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-teal focus-visible:ring-offset-2 focus-visible:ring-offset-background"
         >
           Connect on LinkedIn →
         </a>

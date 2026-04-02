@@ -24,11 +24,11 @@
     @apply bg-background;
   }
   ::-webkit-scrollbar-thumb {
-    @apply bg-accent-purple rounded-full;
+    @apply bg-accent-blue rounded-full;
   }
 
   ::selection {
-    @apply bg-accent-purple/30 text-white;
+    @apply bg-accent-blue/30 text-white;
   }
 
   [id] {
@@ -51,7 +51,7 @@
 
 @layer components {
   .gradient-text {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-accent-cyan via-accent-purple to-accent-pink;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-accent-sky via-accent-blue to-accent-teal;
     background-size: 200% 200%;
     animation: gradientX 4s ease infinite;
   }

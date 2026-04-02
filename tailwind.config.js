@@ -15,18 +15,18 @@ module.exports = {
     },
     extend: {
       colors: {
-        background: "#0f172a",     // Dark navy
-        surface: "#1e293b",        // Card backgrounds
-        border: "#334155",         // Subtle borders
+        background: "#050d1f",     // Deep space navy
+        surface: "#0a1628",        // Card layer
+        border: "#1a2d4a",         // Navy border
         accent: {
-          cyan: "#06b6d4",
-          purple: "#8b5cf6",
-          pink: "#ec4899",
+          blue: "#3b82f6",         // Electric blue — primary
+          teal: "#0d9488",         // Teal — secondary
+          sky: "#60a5fa",          // Light blue — gradients/glow
         },
         text: {
-          primary: "#f1f5f9",
-          secondary: "#94a3b8",
-          muted: "#64748b",
+          primary: "#f0f6ff",      // Cool white
+          secondary: "#8eabc7",    // Blue-gray
+          muted: "#4a6a8a",        // Dark blue-gray
         },
       },
       fontFamily: {

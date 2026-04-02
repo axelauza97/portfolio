@@ -32,7 +32,7 @@ export default function Privacy() {
             For privacy-related questions, contact{" "}
             <a
               href="mailto:axelauza97@hotmail.com"
-              className="text-accent-cyan hover:underline"
+              className="text-accent-blue hover:underline"
             >
               axelauza97@hotmail.com
             </a>

@@ -57,7 +57,7 @@ const ProjectCard = forwardRef(function ProjectCard({ project, index }, ref) {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`Live demo of ${project.title}`}
-                className="flex-1 text-center px-3 py-1.5 rounded-full bg-accent-cyan/10 text-accent-cyan text-xs font-medium hover:bg-accent-cyan/20 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-cyan"
+                className="flex-1 text-center px-3 py-1.5 rounded-full bg-accent-blue/10 text-accent-blue text-xs font-medium hover:bg-accent-blue/20 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-blue"
               >
                 Live Demo ↗
               </a>
@@ -68,7 +68,7 @@ const ProjectCard = forwardRef(function ProjectCard({ project, index }, ref) {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`Source code for ${project.title}`}
-                className="flex-1 text-center px-3 py-1.5 rounded-full border border-white/20 text-text-secondary text-xs font-medium hover:bg-white/5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-purple"
+                className="flex-1 text-center px-3 py-1.5 rounded-full border border-white/20 text-text-secondary text-xs font-medium hover:bg-white/5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-teal"
               >
                 Source ↗
               </a>

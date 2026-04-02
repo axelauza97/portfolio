@@ -28,9 +28,9 @@ export default function Projects() {
             key={tag}
             onClick={() => setActiveTag(tag)}
             aria-pressed={activeTag === tag}
-            className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-purple ${
+            className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-teal ${
               activeTag === tag
-                ? "bg-accent-purple text-white"
+                ? "bg-accent-teal text-white"
                 : "bg-white/5 text-text-secondary hover:bg-white/10 hover:text-text-primary"
             }`}
           >
@@ -73,7 +73,7 @@ export default function Projects() {
           href="https://github.com/axelauza97"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-text-secondary hover:text-accent-cyan transition-colors font-mono text-sm inline-flex items-center gap-2 group"
+          className="text-text-secondary hover:text-accent-blue transition-colors font-mono text-sm inline-flex items-center gap-2 group"
         >
           Browse GitHub profile
           <span className="group-hover:translate-x-1 transition-transform duration-200" aria-hidden="true">→</span>

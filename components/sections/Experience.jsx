@@ -5,11 +5,11 @@ import TechBadge from "@/components/common/TechBadge";
 
 // Timeline accent colors — map career progression to design-token-aligned hex values
 const levelAccentColor = {
-  intern: "#06b6d4",      // accent-cyan
-  junior: "#8b5cf6",      // accent-purple
-  "junior-to-mid": "#ec4899", // accent-pink
-  mid: "#f59e0b",         // amber — documented timeline-only color
-  senior: "#10b981",      // emerald — documented timeline-only color
+  intern: "#38bdf8",           // sky-400
+  junior: "#3b82f6",           // accent-blue
+  "junior-to-mid": "#6366f1",  // indigo-500
+  mid: "#0d9488",              // accent-teal
+  senior: "#10b981",           // emerald — unchanged
 };
 
 export default function Experience() {
@@ -121,13 +121,13 @@ export default function Experience() {
               <h3 className="text-lg font-semibold text-white mb-1 break-words">
                 {exp.role}
               </h3>
-              <p className="text-accent-cyan text-sm mb-3 break-words">
+              <p className="text-accent-blue text-sm mb-3 break-words">
                 {exp.company} · {exp.type}
               </p>
               <ul className="space-y-1 mb-4">
                 {exp.bullets.map((b, j) => (
                   <li key={j} className="text-text-secondary text-sm flex gap-2 break-words">
-                    <span className="text-accent-purple mt-1" aria-hidden="true">
+                    <span className="text-accent-teal mt-1" aria-hidden="true">
                       ▸
                     </span>
                     {b}
