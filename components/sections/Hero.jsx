@@ -77,12 +77,38 @@ export default function Hero() {
       <div className="grain-overlay" aria-hidden="true" />
 
       <div className="section-container relative z-10 w-full">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Left — Text */}
+        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+          {/* Profile Image — first on mobile (order-first), right column on desktop (md:order-last) */}
+          <motion.div
+            initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
+            animate={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="relative flex justify-center order-first md:order-last"
+          >
+            <div className="relative w-36 h-36 sm:w-48 sm:h-48 md:w-72 md:h-72 lg:w-96 lg:h-96">
+              {/* Glow ring */}
+              <div
+                className="absolute inset-0 rounded-full blur-2xl md:blur-3xl opacity-30 bg-gradient-to-r from-accent-cyan via-accent-purple to-accent-pink"
+                aria-hidden="true"
+              />
+              <Image
+                src="/axel.avif"
+                alt="Axel Auza — Full Stack Developer"
+                width={600}
+                height={600}
+                className="w-full h-full object-cover rounded-full border-2 border-white/10 relative z-10"
+                priority
+                sizes="(max-width: 640px) 144px, (max-width: 768px) 192px, (max-width: 1024px) 288px, 384px"
+              />
+            </div>
+          </motion.div>
+
+          {/* Text — centered on mobile, left-aligned on desktop */}
           <motion.div
             initial={prefersReducedMotion ? false : { opacity: 0, x: -30 }}
             animate={prefersReducedMotion ? undefined : { opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
+            transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
+            className="text-center md:text-left order-last md:order-first"
           >
             <p className="text-accent-cyan font-mono text-sm mb-3 tracking-wider">
               Hi, I&apos;m
@@ -111,12 +137,12 @@ export default function Hero() {
               )}
             </div>
 
-            <p className="text-text-secondary text-base mb-2 max-w-xl">
+            <p className="text-text-secondary text-base mb-2 max-w-xl mx-auto md:mx-0">
               I design and ship production-ready interfaces, scalable Django
               backends, and cloud infrastructure for teams that need fast,
               reliable web products.
             </p>
-            <p className="text-text-secondary text-base mb-2 max-w-xl">
+            <p className="hidden md:block text-text-secondary text-base mb-2 max-w-xl">
               My recent work spans real estate platforms, university research
               tooling, and performance-focused frontend systems.
             </p>
@@ -125,7 +151,7 @@ export default function Hero() {
             </p>
 
             {/* CTAs */}
-            <div className="flex flex-wrap gap-4 mb-8">
+            <div className="flex flex-wrap justify-center md:justify-start gap-4 mb-8">
               <a
                 href="#projects"
                 className="px-6 py-3 rounded-full bg-gradient-to-r from-accent-cyan to-accent-purple text-white font-medium hover:shadow-lg hover:shadow-accent-purple/25 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-purple"
@@ -141,7 +167,7 @@ export default function Hero() {
             </div>
 
             {/* Social Links */}
-            <div className="flex gap-3" role="list" aria-label="Social links">
+            <div className="flex justify-center md:justify-start gap-3" role="list" aria-label="Social links">
               {socialLinks.map(({ name, href, icon: Icon, external }) => (
                 <a
                   key={name}
@@ -156,31 +182,6 @@ export default function Hero() {
                   <Icon size={18} aria-hidden="true" />
                 </a>
               ))}
-            </div>
-          </motion.div>
-
-          {/* Right — Profile Image */}
-          <motion.div
-            initial={prefersReducedMotion ? false : { opacity: 0, x: 30 }}
-            animate={prefersReducedMotion ? undefined : { opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}
-            className="relative flex justify-center"
-          >
-            <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
-              {/* Glow ring — uses design token values via CSS vars */}
-              <div
-                className="absolute inset-0 rounded-full blur-3xl opacity-30 bg-gradient-to-r from-accent-cyan via-accent-purple to-accent-pink"
-                aria-hidden="true"
-              />
-              <Image
-                src="/axel.avif"
-                alt="Axel Auza — Full Stack Developer"
-                width={600}
-                height={600}
-                className="w-full h-full object-cover rounded-full border-2 border-white/10 relative z-10"
-                priority
-                sizes="(max-width: 640px) 256px, (max-width: 1024px) 320px, 384px"
-              />
             </div>
           </motion.div>
         </div>
