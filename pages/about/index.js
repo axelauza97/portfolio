@@ -3,8 +3,7 @@ import classes from "styles/About.module.css";
 import { FontAwesomeIcon } from "../../utils/fontawesome";
 import Button from "@/components/UI/Button";
 import yolo from "public/yolo.mp4";
-import { useContext, useEffect, useState } from "react";
-import { useReveal } from "@/hooks/useReveal";
+import { useContext, useEffect } from "react";
 import { Modal } from "@/components/UI/Modal";
 import { ModalContext } from "@/context/modal";
 import { Loader } from "@/components/UI/Loader";
@@ -14,9 +13,21 @@ function AboutPage() {
   const { isLoading, setIsLoading } = useContext(LoaderContext);
 
   useEffect(() => {
-    const { reveal } = useReveal({ document, classes, window });
-    window.addEventListener("scroll", reveal);
-    reveal();
+    const getReveal = () => {
+      const reveals = document.querySelectorAll("." + classes.reveal);
+      for (let i = 0; i < reveals.length; i++) {
+        const windowHeight = window.innerHeight;
+        const elementTop = reveals[i].getBoundingClientRect().top;
+        if (windowHeight > elementTop + 50) {
+          reveals[i].classList.add(classes.active);
+        } else {
+          reveals[i].classList.remove(classes.active);
+        }
+      }
+    };
+    window.addEventListener("scroll", getReveal);
+    getReveal();
+    return () => window.removeEventListener("scroll", getReveal);
   }, []);
   return (
     <>
@@ -194,7 +205,7 @@ function AboutPage() {
 
         <section>
           <div className={classes.video}>
-            <video src={yolo} controls preload="true" />
+            <video src={yolo} controls preload="metadata" />
           </div>
         </section>
       </section>

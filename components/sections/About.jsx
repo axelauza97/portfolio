@@ -88,7 +88,8 @@ export default function About() {
                 href="https://www.youtube.com/watch?v=P-S0G-PbAjQ"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-accent-cyan text-sm font-mono hover:underline"
+                aria-label="Watch thesis demo on YouTube (opens in new tab)"
+                className="text-accent-cyan text-sm font-mono hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-cyan focus-visible:ring-offset-1 focus-visible:ring-offset-background rounded"
               >
                 Watch Thesis Demo →
               </a>

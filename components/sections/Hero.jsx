@@ -69,7 +69,7 @@ export default function Hero() {
         aria-hidden="true"
         style={{
           backgroundImage:
-            "radial-gradient(circle, #334155 1px, transparent 1px)",
+            "radial-gradient(circle, var(--color-border, #334155) 1px, transparent 1px)",
           backgroundSize: "32px 32px",
         }}
       />
@@ -167,13 +167,9 @@ export default function Hero() {
             className="relative flex justify-center"
           >
             <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
-              {/* Glow ring */}
+              {/* Glow ring — uses design token values via CSS vars */}
               <div
-                className="absolute inset-0 rounded-full blur-3xl opacity-30"
-                style={{
-                  background:
-                    "linear-gradient(to right, #06b6d4, #8b5cf6, #ec4899)",
-                }}
+                className="absolute inset-0 rounded-full blur-3xl opacity-30 bg-gradient-to-r from-accent-cyan via-accent-purple to-accent-pink"
                 aria-hidden="true"
               />
               <Image

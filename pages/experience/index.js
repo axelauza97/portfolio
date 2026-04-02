@@ -1,7 +1,5 @@
 import Head from "next/head";
 import classes from "styles/Experience.module.css";
-import { FontAwesomeIcon } from "../../utils/fontawesome";
-import Button from "@/components/UI/Button";
 import ExperiencesList from "@/components/experiences/ExperiencesList";
 import { experiences } from "@/mocks/experience";
 

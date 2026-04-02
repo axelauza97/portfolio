@@ -24,7 +24,7 @@ export default function Contact() {
         </p>
         <a
           href="mailto:axelauza97@hotmail.com"
-          className="inline-block rounded-full bg-gradient-to-r from-accent-cyan to-accent-purple px-8 py-4 text-lg font-medium text-white transition-all hover:shadow-lg hover:shadow-accent-purple/25"
+          className="inline-block rounded-full bg-gradient-to-r from-accent-cyan to-accent-purple px-8 py-4 text-lg font-medium text-white transition-all hover:shadow-lg hover:shadow-accent-purple/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-cyan focus-visible:ring-offset-2 focus-visible:ring-offset-background"
         >
           Email Axel
         </a>

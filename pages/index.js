@@ -46,7 +46,7 @@ const structuredData = {
       knowsAbout: ['React', 'Next.js', 'Django', 'Python', 'Docker', 'Kubernetes'],
       worksFor: {
         '@type': 'Organization',
-        name: 'Independent Consultant',
+        name: 'Freelance',
       },
     },
   ],

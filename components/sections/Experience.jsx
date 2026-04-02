@@ -92,7 +92,7 @@ export default function Experience() {
 
         {experiences.map((exp, i) => (
           <div
-            key={i}
+            key={`${exp.company}-${exp.role}`}
             className={`timeline-card relative flex items-start mb-8 md:mb-12 ${
               i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
             }`}
