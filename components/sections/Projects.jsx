@@ -53,14 +53,22 @@ export default function Projects() {
 
       {/* GitHub Stats + link */}
       <div className="text-center mt-12 space-y-6">
-        <Image
-          src="https://github-readme-stats.vercel.app/api?username=axelauza97&show_icons=true&theme=transparent&hide_border=true&text_color=94a3b8&icon_color=06b6d4&title_color=8b5cf6"
-          alt="Axel Auza GitHub stats — commits, PRs, and contribution activity"
-          width={495}
-          height={195}
-          className="mx-auto max-w-full"
-          unoptimized
-        />
+        <a
+          href="https://github.com/axelauza97"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="View Axel Auza GitHub profile and stats"
+        >
+          <Image
+            src="https://github-readme-stats.vercel.app/api?username=axelauza97&show_icons=true&theme=transparent&hide_border=true&text_color=94a3b8&icon_color=06b6d4&title_color=8b5cf6"
+            alt="Axel Auza GitHub stats — commits, PRs, and contribution activity"
+            width={495}
+            height={195}
+            className="mx-auto max-w-full rounded-lg"
+            unoptimized
+            onError={(e) => { e.currentTarget.style.display = 'none'; }}
+          />
+        </a>
         <a
           href="https://github.com/axelauza97"
           target="_blank"

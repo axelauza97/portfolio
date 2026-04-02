@@ -111,10 +111,10 @@ export default function Experience() {
               style={{ borderLeftColor: levelAccentColor[exp.level] }}
             >
               <div className="flex items-center justify-between mb-2">
-                <span className="text-xs font-mono text-text-muted">
+                <span className="text-xs font-mono text-text-secondary">
                   {exp.period}
                 </span>
-                <span className="text-xs font-mono px-2 py-1 rounded-full bg-white/5 text-text-muted">
+                <span className="text-xs font-mono px-2 py-1 rounded-full bg-white/5 text-text-secondary">
                   {exp.duration}
                 </span>
               </div>

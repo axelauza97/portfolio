@@ -1,2 +1,14 @@
 [     489ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ webpack-internal:///./node_modules/react-dom/cjs/react-dom.development.js:29834
 [   13898ms] [ERROR] Failed to load resource: the server responded with a status of 503 () @ https://github-readme-stats.vercel.app/api?username=axelauza97&show_icons=true&theme=transparent&hide_border=true&text_color=94a3b8&icon_color=06b6d4&title_color=8b5cf6:0
+[   97165ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///./node_modules/next/dist/client/dev/error-overlay/hot-dev-client.js:179
+[   97980ms] [LOG] [Fast Refresh] done in 816ms @ webpack-internal:///./node_modules/next/dist/client/dev/error-overlay/hot-dev-client.js:155
+[  102399ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///./node_modules/next/dist/client/dev/error-overlay/hot-dev-client.js:179
+[  102912ms] [LOG] [Fast Refresh] done in 513ms @ webpack-internal:///./node_modules/next/dist/client/dev/error-overlay/hot-dev-client.js:155
+[  109887ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///./node_modules/next/dist/client/dev/error-overlay/hot-dev-client.js:179
+[  110212ms] [LOG] [Fast Refresh] done in 326ms @ webpack-internal:///./node_modules/next/dist/client/dev/error-overlay/hot-dev-client.js:155
+[  110295ms] [ERROR] Failed to load resource: the server responded with a status of 503 () @ https://github-readme-stats.vercel.app/api?username=axelauza97&show_icons=true&theme=transparent&hide_border=true&text_color=94a3b8&icon_color=06b6d4&title_color=8b5cf6:0
+[  148018ms] [ERROR] WebSocket connection to 'ws://localhost:3100/_next/webpack-hmr' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ webpack-internal:///./node_modules/next/dist/client/dev/error-overlay/websocket.js:75
+[  153019ms] [ERROR] WebSocket connection to 'ws://localhost:3100/_next/webpack-hmr' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ webpack-internal:///./node_modules/next/dist/client/dev/error-overlay/websocket.js:75
+[  158021ms] [ERROR] WebSocket connection to 'ws://localhost:3100/_next/webpack-hmr' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ webpack-internal:///./node_modules/next/dist/client/dev/error-overlay/websocket.js:75
+[  163023ms] [ERROR] WebSocket connection to 'ws://localhost:3100/_next/webpack-hmr' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ webpack-internal:///./node_modules/next/dist/client/dev/error-overlay/websocket.js:75
+[  168027ms] [ERROR] WebSocket connection to 'ws://localhost:3100/_next/webpack-hmr' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ webpack-internal:///./node_modules/next/dist/client/dev/error-overlay/websocket.js:75
