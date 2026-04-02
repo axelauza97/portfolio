@@ -39,7 +39,6 @@ function ExperiencePage(props) {
   );
 }
 export async function getStaticProps() {
-  // Map shared experience data to the legacy page schema
   const mapped = experiences.map((exp) => ({
     title: `${exp.role} — ${exp.company}`,
     date: exp.period,
@@ -48,10 +47,6 @@ export async function getStaticProps() {
     techs: exp.tags,
     link: exp.link || null,
   }));
-  return {
-    props: {
-      experiences: mapped,
-    },
-  };
+  return { props: { experiences: mapped } };
 }
 export default ExperiencePage;

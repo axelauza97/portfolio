@@ -29,6 +29,8 @@ const securityHeaders = [
 const nextConfig = {
   reactStrictMode: true,
   async redirects() {
+    // next.config.js redirects fire before filesystem routing — they take
+    // precedence over pages/about and pages/experience per Next.js routing order.
     return [
       { source: '/about', destination: '/#about', permanent: false },
       { source: '/experience', destination: '/#experience', permanent: false },

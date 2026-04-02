@@ -22,11 +22,6 @@ const structuredData = {
       url: metadata.canonical,
       description: metadata.description,
       inLanguage: 'en',
-      potentialAction: {
-        '@type': 'SearchAction',
-        target: `${metadata.canonical}/?q={search_term_string}`,
-        'query-input': 'required name=search_term_string',
-      },
     },
     {
       '@type': 'Person',
