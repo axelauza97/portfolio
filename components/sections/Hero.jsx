@@ -88,7 +88,7 @@ export default function Hero() {
               Hi, I&apos;m
             </p>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-display mb-4 leading-tight">
               <span className="gradient-text">Axel Auza</span>
             </h1>
 

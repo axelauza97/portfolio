@@ -9,10 +9,12 @@ import Head from 'next/head';
 import { Analytics } from '@vercel/analytics/react';
 import { ModalProvider } from '@/context/modal';
 import { LoaderProvider } from '@/context/loader';
-import { Inter, JetBrains_Mono } from 'next/font/google';
+import { Inter, JetBrains_Mono, Syne } from 'next/font/google';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-mono' });
+// Syne: geometric display font for headings — distinctive character vs generic Inter
+const syne = Syne({ subsets: ['latin'], variable: '--font-display', weight: ['700', '800'] });
 
 config.autoAddCss = false;
 const isProduction = process.env.NODE_ENV === 'production';
@@ -41,7 +43,7 @@ export default function App({ Component, pageProps }) {
   const router = useRouter();
 
   return (
-    <div className={`${inter.variable} ${jetbrainsMono.variable} font-sans`}>
+    <div className={`${inter.variable} ${jetbrainsMono.variable} ${syne.variable} font-sans`}>
       <Head>
         <meta name="author" content="Axel Auza" />
         <meta name="keywords" content="Axel Auza, Next.js, Tailwind, FrontEnd, FullStack" />

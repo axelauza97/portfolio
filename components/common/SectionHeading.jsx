@@ -11,7 +11,7 @@ export default function SectionHeading({ title, subtitle }) {
       transition={{ duration: 0.5 }}
       className="text-center mb-16"
     >
-      <h2 className="text-3xl sm:text-4xl font-bold gradient-text inline-block mb-4">
+      <h2 className="text-3xl sm:text-4xl font-bold font-display gradient-text inline-block mb-4">
         {title}
       </h2>
       {subtitle && (
