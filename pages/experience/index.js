@@ -31,12 +31,12 @@ function ExperiencePage(props) {
         <link rel="canonical" href="https://axelauza.com/experience" />
       </Head>
 
-      <main className={classes.main}>
+      <div className={classes.main}>
         <h1 className={classes.title}>Experience</h1>
         <article>
           <ExperiencesList experiences={props.experiences} />
         </article>
-      </main>
+      </div>
     </>
   );
 }

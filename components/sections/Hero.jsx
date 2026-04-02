@@ -1,5 +1,5 @@
-import { useState, useCallback } from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { useCallback } from "react";
+import { motion, useReducedMotion, useMotionValue } from "framer-motion";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
@@ -41,15 +41,17 @@ const roles = [
 
 export default function Hero() {
   const prefersReducedMotion = useReducedMotion();
-  const [spotPos, setSpotPos] = useState({ x: 0, y: 0 });
+  const spotX = useMotionValue(0);
+  const spotY = useMotionValue(0);
 
   const handleMouseMove = useCallback(
     (e) => {
       if (prefersReducedMotion) return;
       const rect = e.currentTarget.getBoundingClientRect();
-      setSpotPos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+      spotX.set(e.clientX - rect.left);
+      spotY.set(e.clientY - rect.top);
     },
-    [prefersReducedMotion]
+    [prefersReducedMotion, spotX, spotY]
   );
 
   return (
@@ -58,10 +60,10 @@ export default function Hero() {
       className="relative min-h-screen flex items-center overflow-hidden bg-background"
       onMouseMove={handleMouseMove}
     >
-      {/* Spotlight — receives position from section-level mouse tracking */}
-      <Spotlight fill="cyan" className="absolute inset-0" position={spotPos} />
+      {/* Spotlight — driven by motion values; no React re-renders on mouse move */}
+      <Spotlight fill="cyan" className="absolute inset-0" spotX={spotX} spotY={spotY} />
 
-      {/* Subtle dot grid background */}
+      {/* Dot grid background */}
       <div
         className="absolute inset-0 opacity-10 pointer-events-none"
         aria-hidden="true"
@@ -71,6 +73,8 @@ export default function Hero() {
           backgroundSize: "32px 32px",
         }}
       />
+      {/* Grain texture overlay for depth */}
+      <div className="grain-overlay" aria-hidden="true" />
 
       <div className="section-container relative z-10 w-full">
         <div className="grid md:grid-cols-2 gap-12 items-center">

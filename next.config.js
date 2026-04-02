@@ -28,6 +28,12 @@ const securityHeaders = [
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  async redirects() {
+    return [
+      { source: '/about', destination: '/#about', permanent: false },
+      { source: '/experience', destination: '/#experience', permanent: false },
+    ];
+  },
   images: {
     remotePatterns: [
       {

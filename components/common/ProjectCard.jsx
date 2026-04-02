@@ -22,38 +22,9 @@ const ProjectCard = forwardRef(function ProjectCard({ project, index }, ref) {
           alt={`${project.title} screenshot`}
           width={576}
           height={450}
-          priority={index < 2}
-          loading={index < 2 ? "eager" : "lazy"}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
         />
-        {/* CTAs — hidden from interaction when not visible; revealed on hover or focus */}
-        <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto group-focus-within:opacity-100 group-focus-within:pointer-events-auto transition-opacity duration-300 flex items-end p-4">
-          <div className="flex gap-3">
-            {project.liveUrl && (
-              <a
-                href={project.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`Live demo of ${project.title}`}
-                className="px-4 py-2 rounded-full bg-accent-cyan text-background text-sm font-medium hover:bg-accent-cyan/80 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
-              >
-                Live Demo
-              </a>
-            )}
-            {project.sourceUrl && (
-              <a
-                href={project.sourceUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`Source code for ${project.title}`}
-                className="px-4 py-2 rounded-full border border-white/30 text-text-primary text-sm font-medium hover:bg-white/10 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
-              >
-                Source Code
-              </a>
-            )}
-          </div>
-        </div>
       </div>
 
       {/* Content */}
@@ -72,11 +43,38 @@ const ProjectCard = forwardRef(function ProjectCard({ project, index }, ref) {
         >
           {project.description}
         </p>
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-2 mb-4">
           {project.tags.map((tag) => (
             <TechBadge key={tag} name={tag} />
           ))}
         </div>
+        {/* Always-visible links — accessible on touch and pointer devices alike */}
+        {(project.liveUrl || project.sourceUrl) && (
+          <div className="flex gap-2 pt-3 border-t border-white/10">
+            {project.liveUrl && (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Live demo of ${project.title}`}
+                className="flex-1 text-center px-3 py-1.5 rounded-full bg-accent-cyan/10 text-accent-cyan text-xs font-medium hover:bg-accent-cyan/20 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-cyan"
+              >
+                Live Demo ↗
+              </a>
+            )}
+            {project.sourceUrl && (
+              <a
+                href={project.sourceUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Source code for ${project.title}`}
+                className="flex-1 text-center px-3 py-1.5 rounded-full border border-white/20 text-text-secondary text-xs font-medium hover:bg-white/5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-purple"
+              >
+                Source ↗
+              </a>
+            )}
+          </div>
+        )}
       </div>
     </motion.div>
   );

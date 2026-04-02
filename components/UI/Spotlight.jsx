@@ -1,4 +1,4 @@
-import { motion, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion, useSpring, useTransform } from "framer-motion";
 
 const colorMap = {
   cyan: "rgba(6, 182, 212, 0.15)",
@@ -6,9 +6,15 @@ const colorMap = {
   pink: "rgba(236, 72, 153, 0.15)",
 };
 
-export function Spotlight({ className = "", fill = "cyan", position = { x: 0, y: 0 } }) {
+// Accepts motion values (spotX, spotY) so spotlight moves without React re-renders
+export function Spotlight({ className = "", fill = "cyan", spotX, spotY }) {
   const prefersReducedMotion = useReducedMotion();
   const color = colorMap[fill] || colorMap.cyan;
+
+  const springX = useSpring(spotX ?? 0, { stiffness: 80, damping: 20 });
+  const springY = useSpring(spotY ?? 0, { stiffness: 80, damping: 20 });
+  const x = useTransform(springX, (v) => v - 300);
+  const y = useTransform(springY, (v) => v - 300);
 
   return (
     <div
@@ -17,13 +23,11 @@ export function Spotlight({ className = "", fill = "cyan", position = { x: 0, y:
     >
       <motion.div
         className="absolute hidden rounded-full blur-3xl pointer-events-none sm:block"
-        animate={
+        style={
           prefersReducedMotion
-            ? { x: "30%", y: "-20%", opacity: 0.4 }
-            : { x: position.x - 300, y: position.y - 300, opacity: 0.5 }
+            ? { width: 600, height: 600, background: color, opacity: 0.4, left: "30%", top: "-20%" }
+            : { x, y, width: 600, height: 600, background: color, opacity: 0.5 }
         }
-        transition={{ type: "spring", stiffness: 80, damping: 20 }}
-        style={{ width: 600, height: 600, background: color }}
       />
     </div>
   );

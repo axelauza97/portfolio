@@ -1,0 +1,24 @@
+# Axel Auza — Portfolio
+
+> Full Stack Developer specializing in React, Next.js, Django, and cloud infrastructure.
+
+## About
+
+Axel Auza is a Full Stack Developer based in Guayaquil, Ecuador. Available for freelance and contract work.
+
+## Skills
+
+- Frontend: React, Next.js, TypeScript, Tailwind CSS
+- Backend: Django, Python, FastAPI, Node.js
+- Cloud: Docker, Kubernetes, AWS, GCP
+- Databases: PostgreSQL, Redis, MongoDB
+
+## Projects
+
+See https://axelauza.com/#projects for current project portfolio.
+
+## Contact
+
+- GitHub: https://github.com/axelauza97
+- LinkedIn: https://www.linkedin.com/in/axelauza/
+- Email: axelauza97@hotmail.com

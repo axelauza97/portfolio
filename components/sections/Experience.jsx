@@ -3,20 +3,13 @@ import { experiences } from "@/mocks/experience";
 import SectionHeading from "@/components/common/SectionHeading";
 import TechBadge from "@/components/common/TechBadge";
 
-const levelColors = {
-  intern: "border-emerald-500",
-  junior: "border-blue-500",
-  "junior-to-mid": "border-violet-500",
-  mid: "border-amber-500",
-  senior: "border-rose-500",
-};
-
-const levelDotColors = {
-  intern: "bg-emerald-500",
-  junior: "bg-blue-500",
-  "junior-to-mid": "bg-violet-500",
-  mid: "bg-amber-500",
-  senior: "bg-rose-500",
+// Timeline accent colors — map career progression to design-token-aligned hex values
+const levelAccentColor = {
+  intern: "#06b6d4",      // accent-cyan
+  junior: "#8b5cf6",      // accent-purple
+  "junior-to-mid": "#ec4899", // accent-pink
+  mid: "#f59e0b",         // amber — documented timeline-only color
+  senior: "#10b981",      // emerald — documented timeline-only color
 };
 
 export default function Experience() {
@@ -106,14 +99,16 @@ export default function Experience() {
           >
             {/* Dot */}
             <div
-              className={`absolute left-3 md:left-1/2 w-3 h-3 rounded-full ${levelDotColors[exp.level]} -translate-x-1/2 border-2 border-background z-10 mt-5`}
+              className="absolute left-3 md:left-1/2 w-3 h-3 rounded-full -translate-x-1/2 border-2 border-background z-10 mt-5"
+              style={{ backgroundColor: levelAccentColor[exp.level] }}
             />
 
             {/* Card */}
             <div
               className={`w-[calc(100%-1.75rem)] md:w-[45%] ml-7 md:ml-0 min-w-0 ${
                 i % 2 === 0 ? "md:pr-12" : "md:pl-12"
-              } glass-card p-4 md:p-6 border-l-4 ${levelColors[exp.level]}`}
+              } glass-card p-4 md:p-6 border-l-4`}
+              style={{ borderLeftColor: levelAccentColor[exp.level] }}
             >
               <div className="flex items-center justify-between mb-2">
                 <span className="text-xs font-mono text-text-muted">
