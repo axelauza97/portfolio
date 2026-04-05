@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 import { experiences } from "@/mocks/experience";
 import SectionHeading from "@/components/common/SectionHeading";
 import TechBadge from "@/components/common/TechBadge";
@@ -37,7 +38,8 @@ export default function Experience() {
 
       gsap.registerPlugin(ScrollTrigger);
 
-      const cards = gsap.utils.toArray(".timeline-card", containerRef.current);
+      const container = containerRef.current;
+      const cards = gsap.utils.toArray(".timeline-card", container);
 
       // Set initial hidden state via GSAP (not static HTML) so cards stay
       // visible without JS and are only hidden once GSAP is ready
@@ -69,8 +71,48 @@ export default function Experience() {
         })
       );
 
+      // Timeline line draw
+      const line = container.querySelector(".timeline-line");
+      if (line) {
+        gsap.fromTo(
+          line,
+          { clipPath: "inset(0 0 100% 0)" },
+          {
+            clipPath: "inset(0 0 0% 0)",
+            ease: "none",
+            scrollTrigger: {
+              trigger: container,
+              start: "top 80%",
+              end: "bottom 20%",
+              scrub: 1,
+            },
+          }
+        );
+      }
+
+      // Dot bloom animation
+      const dots = container.querySelectorAll(".timeline-dot");
+      dots.forEach((dot) => {
+        gsap.fromTo(
+          dot,
+          { scale: 0, opacity: 0 },
+          {
+            scale: 1,
+            opacity: 1,
+            duration: 0.4,
+            ease: "back.out(1.7)",
+            scrollTrigger: {
+              trigger: dot,
+              start: "top 85%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      });
+
       cleanup = () => {
         triggers.forEach((trigger) => trigger.kill());
+        ScrollTrigger.getAll().forEach((st) => st.kill());
       };
     }
 
@@ -86,9 +128,63 @@ export default function Experience() {
     <section id="experience" className="section-container overflow-x-clip">
       <SectionHeading title="Experience" subtitle="My professional journey" />
 
+      {/* Career Progress Bar */}
+      <div className="mb-12 max-w-2xl mx-auto">
+        <div className="relative">
+          {/* Background track */}
+          <div className="absolute top-3 left-4 right-4 h-px bg-white/10" />
+          {/* Progress fill */}
+          <motion.div
+            className="absolute top-3 left-4 h-px bg-gradient-to-r from-accent-sky via-accent-blue to-accent-teal"
+            initial={{ width: 0 }}
+            whileInView={{ width: "calc(100% - 2rem)" }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.2, ease: "easeOut", delay: 0.3 }}
+          />
+          {/* Level dots */}
+          <div className="relative flex justify-between px-0">
+            {[
+              { label: "Intern", color: "#38bdf8" },
+              { label: "Junior", color: "#3b82f6" },
+              { label: "Mid", color: "#6366f1" },
+              { label: "Senior", color: "#0d9488" },
+              { label: "Now", color: "#10b981" },
+            ].map((level, i, arr) => (
+              <motion.div
+                key={level.label}
+                className="flex flex-col items-center gap-2"
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 + i * 0.1, duration: 0.4 }}
+              >
+                <div
+                  className="relative w-3 h-3 rounded-full border-2"
+                  style={{
+                    backgroundColor: level.color,
+                    borderColor: level.color,
+                    boxShadow: i === arr.length - 1 ? `0 0 12px ${level.color}` : "none",
+                  }}
+                >
+                  {i === arr.length - 1 && (
+                    <motion.div
+                      className="absolute inset-0 rounded-full"
+                      style={{ backgroundColor: level.color }}
+                      animate={{ scale: [1, 1.8, 1], opacity: [0.6, 0, 0.6] }}
+                      transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                    />
+                  )}
+                </div>
+                <span className="text-xs font-mono text-text-muted">{level.label}</span>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+
       <div ref={containerRef} className="relative max-w-3xl mx-auto overflow-x-clip">
         {/* Vertical line */}
-        <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-white/10 -translate-x-1/2" />
+        <div className="timeline-line absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-white/10 -translate-x-1/2" />
 
         {experiences.map((exp, i) => (
           <div
@@ -99,7 +195,7 @@ export default function Experience() {
           >
             {/* Dot */}
             <div
-              className="absolute left-3 md:left-1/2 w-3 h-3 rounded-full -translate-x-1/2 border-2 border-background z-10 mt-5"
+              className="timeline-dot absolute left-3 md:left-1/2 w-3 h-3 rounded-full -translate-x-1/2 border-2 border-background z-10 mt-5"
               style={{ backgroundColor: levelAccentColor[exp.level] }}
             />
 
