@@ -1,0 +1,112 @@
+import { test, expect } from '@playwright/test';
+
+const viewports = [
+  { name: 'mobile', width: 375, height: 812 },
+  { name: 'tablet', width: 768, height: 1024 },
+  { name: 'desktop', width: 1280, height: 900 },
+];
+
+const sections = ['#hero', '#projects', '#experience', '#about', '#contact'];
+
+for (const vp of viewports) {
+  test.describe(`${vp.name} (${vp.width}x${vp.height})`, () => {
+    test.use({ viewport: { width: vp.width, height: vp.height } });
+
+    test('full page screenshot', async ({ page }) => {
+      await page.goto('/');
+      await page.waitForLoadState('networkidle');
+      await page.screenshot({
+        path: `tests/visual/screenshots/${vp.name}-full.png`,
+        fullPage: true,
+      });
+    });
+
+    for (const section of sections) {
+      test(`section ${section}`, async ({ page }) => {
+        await page.goto('/');
+        await page.waitForLoadState('networkidle');
+        const el = page.locator(section);
+        await expect(el, `${section} should exist for screenshot capture`).toHaveCount(1);
+        await el.scrollIntoViewIfNeeded();
+        await page.waitForTimeout(500);
+        await el.screenshot({
+          path: `tests/visual/screenshots/${vp.name}-${section.replace('#', '')}.png`,
+        });
+      });
+    }
+  });
+}
+
+test('no horizontal overflow on mobile', async ({ page }) => {
+  await page.setViewportSize({ width: 375, height: 812 });
+  await page.goto('/');
+  await page.waitForLoadState('networkidle');
+  const bodyWidth = await page.evaluate(() => document.body.scrollWidth);
+  expect(bodyWidth).toBeLessThanOrEqual(375);
+});
+
+test('no horizontal overflow on tablet', async ({ page }) => {
+  await page.setViewportSize({ width: 768, height: 1024 });
+  await page.goto('/');
+  await page.waitForLoadState('networkidle');
+  const bodyWidth = await page.evaluate(() => document.body.scrollWidth);
+  expect(bodyWidth).toBeLessThanOrEqual(768);
+});
+
+test('navigation visible on desktop', async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await page.goto('/');
+  await page.waitForLoadState('networkidle');
+  const nav = page.getByRole('navigation', { name: 'Main navigation' });
+  await expect(nav).toBeVisible();
+});
+
+test('hamburger menu works on mobile', async ({ page }) => {
+  await page.setViewportSize({ width: 375, height: 812 });
+  await page.goto('/');
+  await page.waitForLoadState('networkidle');
+
+  const menuButton = page.locator('button[aria-controls="mobile-menu"]');
+  await expect(menuButton).toBeVisible();
+  await expect(menuButton).toHaveAttribute('aria-label', /open navigation/i);
+  await expect(menuButton).toHaveAttribute('aria-expanded', 'false');
+
+  await menuButton.click();
+
+  await expect(menuButton).toHaveAttribute('aria-label', /close navigation/i);
+  await expect(menuButton).toHaveAttribute('aria-expanded', 'true');
+  await expect(page.locator('#mobile-menu')).toBeVisible();
+  await expect(
+    page
+      .getByRole('navigation', { name: 'Mobile navigation' })
+      .getByRole('link', { name: 'Projects', exact: true })
+  ).toBeVisible();
+});
+
+test('all images load', async ({ page }) => {
+  await page.goto('/');
+  await page.waitForLoadState('networkidle');
+  const images = page.locator('img');
+  const count = await images.count();
+  for (let i = 0; i < count; i++) {
+    const img = images.nth(i);
+    const naturalWidth = await img.evaluate(
+      (el: HTMLImageElement) => el.naturalWidth
+    );
+    expect(naturalWidth).toBeGreaterThan(0);
+  }
+});
+
+test('no console errors', async ({ page }) => {
+  const errors: string[] = [];
+  page.on('pageerror', error => {
+    errors.push(error.message);
+  });
+  page.on('console', msg => {
+    if (msg.type() === 'error') errors.push(msg.text());
+  });
+
+  await page.goto('/');
+  await page.waitForLoadState('networkidle');
+  expect(errors).toEqual([]);
+});

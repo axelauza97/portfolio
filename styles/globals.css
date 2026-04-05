@@ -2,6 +2,123 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  body {
+    @apply bg-background text-text-primary antialiased overflow-x-hidden;
+  }
+
+  html {
+    overflow-x: hidden;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-background;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-accent-blue rounded-full;
+  }
+
+  ::selection {
+    @apply bg-accent-blue/30 text-white;
+  }
+
+  [id] {
+    scroll-margin-top: 5.5rem;
+  }
+
+  #__next-route-announcer__ {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+  }
+}
+
+@layer components {
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-accent-sky via-accent-blue to-accent-teal;
+    background-size: 200% 200%;
+    animation: gradientX 4s ease infinite;
+  }
+
+  /* Grain texture overlay — atmospheric depth (frontend-design skill) */
+  .grain-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.045;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 200px 200px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .gradient-text {
+      animation: none;
+    }
+  }
+
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-xl
+           transition-all duration-300 ease-out
+           hover:bg-white/[0.07] hover:border-white/[0.15]
+           hover:-translate-y-0.5 hover:shadow-lg hover:shadow-black/20;
+  }
+
+  .Typewriter__cursor {
+    display: inline-block;
+    width: 2px;
+    background: linear-gradient(to bottom, #3b82f6, #0d9488);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: cursor-blink 1s step-end infinite;
+    font-weight: 100;
+    margin-left: 1px;
+  }
+
+  @keyframes cursor-blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
+
+  .section-container {
+    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-section;
+  }
+}
+
+/* ============================================================
+   Accessibility — disable all motion for users who prefer it
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+}
+
+/* ============================================================
+   Legacy carousel styles — used by existing components.
+   DO NOT remove these until the carousel is fully replaced.
+   ============================================================ */
+
 article,
 aside,
 details,
@@ -55,14 +172,8 @@ a {
   text-decoration: inherit;
 }
 
-html {
-  background-color: #222831;
-}
-
-button,
 input {
   margin: 0 !important;
-  display: block;
 }
 
 body {
@@ -76,8 +187,7 @@ input[type='radio']:active,
 input[type='submit']:active,
 input[type='reset']:active,
 input[type='button']:active,
-input[type='range']:active,
-button:active {
+input[type='range']:active {
   transform: translateY(2px);
 }
 

@@ -1,0 +1,13 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#0F172A"/>
+  <circle cx="1010" cy="126" r="180" fill="#06B6D4" fill-opacity="0.18"/>
+  <circle cx="920" cy="560" r="220" fill="#8B5CF6" fill-opacity="0.16"/>
+  <circle cx="210" cy="120" r="140" fill="#EC4899" fill-opacity="0.14"/>
+  <rect x="80" y="92" width="1040" height="446" rx="32" fill="#1E293B" fill-opacity="0.88" stroke="#334155"/>
+  <text x="120" y="198" fill="#06B6D4" font-family="Arial, sans-serif" font-size="30" letter-spacing="4">FULL STACK DEVELOPER</text>
+  <text x="120" y="292" fill="#F1F5F9" font-family="Arial, sans-serif" font-size="84" font-weight="700">Axel Auza</text>
+  <text x="120" y="360" fill="#94A3B8" font-family="Arial, sans-serif" font-size="34">React, Django, and cloud-backed product engineering.</text>
+  <text x="120" y="418" fill="#94A3B8" font-family="Arial, sans-serif" font-size="34">Portfolio, case studies, and contact details.</text>
+  <rect x="120" y="460" width="276" height="54" rx="27" fill="#06B6D4"/>
+  <text x="164" y="495" fill="#0F172A" font-family="Arial, sans-serif" font-size="28" font-weight="700">axelauza.com</text>
+</svg>

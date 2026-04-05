@@ -1,0 +1,353 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e4]:
+    - link "Skip to main content" [ref=e5] [cursor=pointer]:
+      - /url: "#main-content"
+    - navigation "Main navigation" [ref=e6]:
+      - generic [ref=e8]:
+        - link "Axel Auza" [ref=e9] [cursor=pointer]:
+          - /url: /
+        - generic [ref=e10]:
+          - link "Home" [ref=e11] [cursor=pointer]:
+            - /url: /
+            - text: Home
+          - link "Projects" [ref=e13] [cursor=pointer]:
+            - /url: /#projects
+            - text: Projects
+          - link "Experience" [ref=e14] [cursor=pointer]:
+            - /url: /experience
+            - text: Experience
+          - link "About" [ref=e15] [cursor=pointer]:
+            - /url: /about
+            - text: About
+          - link "Contact" [ref=e16] [cursor=pointer]:
+            - /url: /#contact
+            - text: Contact
+    - main [ref=e17]:
+      - generic [ref=e18]:
+        - generic [ref=e21]:
+          - generic [ref=e22]:
+            - paragraph [ref=e23]: Hi, I'm
+            - heading "Axel Auza" [level=1] [ref=e24]
+            - generic [ref=e26]:
+              - generic [ref=e27]: Full St
+              - text: "|"
+            - paragraph [ref=e28]: I design and ship production-ready interfaces, scalable Django backends, and cloud infrastructure for teams that need fast, reliable web products.
+            - paragraph [ref=e29]: My recent work spans real estate platforms, university research tooling, and performance-focused frontend systems.
+            - paragraph [ref=e30]: 📍 Guayaquil, Ecuador
+            - generic [ref=e31]:
+              - link "View Projects" [ref=e32] [cursor=pointer]:
+                - /url: "#projects"
+              - link "Contact Me" [ref=e33] [cursor=pointer]:
+                - /url: "#contact"
+            - list "Social links" [ref=e34]:
+              - listitem "GitHub" [ref=e35] [cursor=pointer]:
+                - img [ref=e36]
+              - listitem "LinkedIn" [ref=e38] [cursor=pointer]:
+                - img [ref=e39]
+              - listitem "Email" [ref=e41] [cursor=pointer]:
+                - img [ref=e42]
+          - img "Axel Auza — Full Stack Developer" [ref=e48]
+        - generic [ref=e49]:
+          - generic [ref=e50]:
+            - heading "Projects" [level=2] [ref=e51]
+            - paragraph [ref=e52]: A selection of things I've built
+          - group "Filter projects by technology" [ref=e53]:
+            - button "All" [pressed] [ref=e54] [cursor=pointer]
+            - button "CSS" [ref=e55] [cursor=pointer]
+            - button "Django" [ref=e56] [cursor=pointer]
+            - button "Docker" [ref=e57] [cursor=pointer]
+            - button "GCP" [ref=e58] [cursor=pointer]
+            - button "Kubernetes" [ref=e59] [cursor=pointer]
+            - button "Microservices" [ref=e60] [cursor=pointer]
+            - button "Next.js" [ref=e61] [cursor=pointer]
+            - button "OAuth2" [ref=e62] [cursor=pointer]
+            - button "Python" [ref=e63] [cursor=pointer]
+            - button "React" [ref=e64] [cursor=pointer]
+            - button "SSR" [ref=e65] [cursor=pointer]
+            - button "Tailwind" [ref=e66] [cursor=pointer]
+            - button "Vertex AI" [ref=e67] [cursor=pointer]
+          - generic [ref=e68]:
+            - generic [ref=e69]:
+              - generic [ref=e70]:
+                - img "Uneatlantico screenshot" [ref=e71]
+                - generic:
+                  - generic:
+                    - link "Live demo of Uneatlantico":
+                      - /url: https://repositorio.uneatlantico.es/
+                      - text: Live Demo
+              - generic [ref=e72]:
+                - heading "Uneatlantico" [level=3] [ref=e73]
+                - paragraph [ref=e74]: Scientific dockerized repositories for universities with Kubernetes CI/CD pipelines and Vertex AI lead scoring.
+                - generic [ref=e75]:
+                  - generic [ref=e76]: Docker
+                  - generic [ref=e77]: Kubernetes
+                  - generic [ref=e78]: Python
+                  - generic [ref=e79]: GCP
+                  - generic [ref=e80]: Vertex AI
+            - generic [ref=e81]:
+              - generic [ref=e82]:
+                - img "Django Microservice screenshot" [ref=e83]
+                - generic:
+                  - generic:
+                    - link "Source code for Django Microservice":
+                      - /url: https://github.com/axelauza97/marWebsite
+                      - text: Source Code
+              - generic [ref=e84]:
+                - heading "Django Microservice" [level=3] [ref=e85]
+                - paragraph [ref=e86]: React SPA with microservice Django backend for trip management, featuring separated auth and data services.
+                - generic [ref=e87]:
+                  - generic [ref=e88]: React
+                  - generic [ref=e89]: Django
+                  - generic [ref=e90]: Microservices
+                  - generic [ref=e91]: Python
+            - generic [ref=e92]:
+              - generic [ref=e93]:
+                - img "TransporterBackend screenshot" [ref=e94]
+                - generic:
+                  - generic:
+                    - link "Source code for TransporterBackend":
+                      - /url: https://github.com/axelauza97/TransporterBackend
+                      - text: Source Code
+              - generic [ref=e95]:
+                - heading "TransporterBackend" [level=3] [ref=e96]
+                - paragraph [ref=e97]: Django backend with OAuth2 social authentication and Stripe-compatible credit card payments via Paymentez.
+                - generic [ref=e98]:
+                  - generic [ref=e99]: Django
+                  - generic [ref=e100]: Python
+                  - generic [ref=e101]: OAuth2
+            - generic [ref=e102]:
+              - generic [ref=e103]:
+                - img "ECommerce screenshot" [ref=e104]
+                - generic:
+                  - generic:
+                    - link "Live demo of ECommerce":
+                      - /url: https://bazar-store-axel.vercel.app/
+                      - text: Live Demo
+                    - link "Source code for ECommerce":
+                      - /url: https://github.com/axelauza97/react/tree/main/bazar
+                      - text: Source Code
+              - generic [ref=e105]:
+                - heading "ECommerce" [level=3] [ref=e106]
+                - paragraph [ref=e107]: Next.js SSR e-commerce app with skeleton loaders, cart management, and fully responsive design.
+                - generic [ref=e108]:
+                  - generic [ref=e109]: Next.js
+                  - generic [ref=e110]: React
+                  - generic [ref=e111]: SSR
+            - generic [ref=e112]:
+              - generic [ref=e113]:
+                - img "Clarifion screenshot" [ref=e114]
+                - generic:
+                  - generic:
+                    - link "Live demo of Clarifion":
+                      - /url: https://clarifion-axel-auza.netlify.app/
+                      - text: Live Demo
+                    - link "Source code for Clarifion":
+                      - /url: https://github.com/axelauza97/react/tree/main/clarifon-test
+                      - text: Source Code
+              - generic [ref=e115]:
+                - heading "Clarifion" [level=3] [ref=e116]
+                - paragraph [ref=e117]: Pixel-perfect React frontend clone demonstrating responsive layouts and high-fidelity CSS implementation.
+                - generic [ref=e118]:
+                  - generic [ref=e119]: React
+                  - generic [ref=e120]: CSS
+            - generic [ref=e121]:
+              - generic [ref=e122]:
+                - img "Portfolio screenshot" [ref=e123]
+                - generic:
+                  - generic:
+                    - link "Live demo of Portfolio":
+                      - /url: https://portfolio-axelauza97.vercel.app/
+                      - text: Live Demo
+                    - link "Source code for Portfolio":
+                      - /url: https://github.com/axelauza97/portfolio
+                      - text: Source Code
+              - generic [ref=e124]:
+                - heading "Portfolio" [level=3] [ref=e125]
+                - paragraph [ref=e126]: This portfolio — built with Next.js, Tailwind CSS, Framer Motion, and deployed on Vercel.
+                - generic [ref=e127]:
+                  - generic [ref=e128]: Next.js
+                  - generic [ref=e129]: React
+                  - generic [ref=e130]: Tailwind
+          - generic [ref=e131]:
+            - img "Axel Auza GitHub stats — commits, PRs, and contribution activity" [ref=e132]
+            - link "Browse GitHub profile" [ref=e133] [cursor=pointer]:
+              - /url: https://github.com/axelauza97
+              - text: Browse GitHub profile
+              - generic [ref=e134]: →
+        - generic [ref=e135]:
+          - generic [ref=e136]:
+            - heading "Experience" [level=2] [ref=e137]
+            - paragraph [ref=e138]: My professional journey
+          - generic [ref=e139]:
+            - generic [ref=e143]:
+              - generic [ref=e144]:
+                - generic [ref=e145]: March 2024 – Present
+                - generic [ref=e146]: 2+ years
+              - heading "Senior Full Stack Developer" [level=3] [ref=e147]
+              - paragraph [ref=e148]: Real Estate Company (USA) · Remote
+              - list [ref=e149]:
+                - listitem [ref=e150]:
+                  - generic [ref=e151]: ▸
+                  - text: Transform pixel-perfect designs into production React components
+                - listitem [ref=e152]:
+                  - generic [ref=e153]: ▸
+                  - text: Build and enhance features on NodeJS platform
+                - listitem [ref=e154]:
+                  - generic [ref=e155]: ▸
+                  - text: Drive SEO and performance improvements
+              - generic [ref=e156]:
+                - generic [ref=e157]: React
+                - generic [ref=e158]: Node.js
+                - generic [ref=e159]: Tailwind
+                - generic [ref=e160]: CSS
+            - generic [ref=e163]:
+              - generic [ref=e164]:
+                - generic [ref=e165]: June 2022 – May 2024
+                - generic [ref=e166]: 2 years
+              - heading "Full Stack Developer" [level=3] [ref=e167]
+              - paragraph [ref=e168]: Telconet · On-site
+              - list [ref=e169]:
+                - listitem [ref=e170]:
+                  - generic [ref=e171]: ▸
+                  - text: Developed features for technician mobile app (Java/Android)
+                - listitem [ref=e172]:
+                  - generic [ref=e173]: ▸
+                  - text: Built frontend features with ExtJS for installation management
+                - listitem [ref=e174]:
+                  - generic [ref=e175]: ▸
+                  - text: Backend development with Symfony
+              - generic [ref=e176]:
+                - generic [ref=e177]: Java
+                - generic [ref=e178]: ExtJS
+                - generic [ref=e179]: Symfony
+                - generic [ref=e180]: GitLab
+            - generic [ref=e183]:
+              - generic [ref=e184]:
+                - generic [ref=e185]: March 2021 – May 2023
+                - generic [ref=e186]: 2 years
+              - heading "Junior → Semi Senior Full Stack Developer" [level=3] [ref=e187]
+              - paragraph [ref=e188]: FUNIBER · On-site
+              - list [ref=e189]:
+                - listitem [ref=e190]:
+                  - generic [ref=e191]: ▸
+                  - text: Created dockerized scientific repositories for university network
+                - listitem [ref=e192]:
+                  - generic [ref=e193]: ▸
+                  - text: Built Kubernetes infrastructure for auto-scaling
+                - listitem [ref=e194]:
+                  - generic [ref=e195]: ▸
+                  - text: "Data Science: score leads with Vertex AI and custom models"
+              - generic [ref=e196]:
+                - generic [ref=e197]: Docker
+                - generic [ref=e198]: Kubernetes
+                - generic [ref=e199]: GCP
+                - generic [ref=e200]: Python
+                - generic [ref=e201]: Flask
+            - generic [ref=e204]:
+              - generic [ref=e205]:
+                - generic [ref=e206]: August 2020 – October 2021
+                - generic [ref=e207]: 1 year
+              - heading "Junior Full Stack Developer" [level=3] [ref=e208]
+              - paragraph [ref=e209]: Hangaroa · On-site
+              - list [ref=e210]:
+                - listitem [ref=e211]:
+                  - generic [ref=e212]: ▸
+                  - text: Built startup applications with Angular, React Native, Django
+                - listitem [ref=e213]:
+                  - generic [ref=e214]: ▸
+                  - text: Integrated features and fixed bugs across multiple apps
+              - generic [ref=e215]:
+                - generic [ref=e216]: Angular
+                - generic [ref=e217]: React Native
+                - generic [ref=e218]: Django
+                - generic [ref=e219]: MySQL
+            - generic [ref=e222]:
+              - generic [ref=e223]:
+                - generic [ref=e224]: June 2019 – March 2020
+                - generic [ref=e225]: 9 months
+              - heading "Software Developer" [level=3] [ref=e226]
+              - paragraph [ref=e227]: CIDIS — ESPOL · Research
+              - list [ref=e228]:
+                - listitem [ref=e229]:
+                  - generic [ref=e230]: ▸
+                  - text: Built Django backend for research project management
+                - listitem [ref=e231]:
+                  - generic [ref=e232]: ▸
+                  - text: Created banana dataset using multispectral cameras
+                - listitem [ref=e233]:
+                  - generic [ref=e234]: ▸
+                  - text: Configured CARLA Simulator for synthetic dataset construction
+              - generic [ref=e235]:
+                - generic [ref=e236]: Django
+                - generic [ref=e237]: Python
+                - generic [ref=e238]: Computer Vision
+        - generic [ref=e239]:
+          - generic [ref=e240]:
+            - heading "About Me" [level=2] [ref=e241]
+            - paragraph [ref=e242]: Who I am and what I do
+          - generic [ref=e243]:
+            - paragraph [ref=e244]: Full Stack Developer based in Guayaquil, Ecuador. I build scalable web applications and cloud infrastructure — from pixel-perfect React UIs to Kubernetes pipelines. I enjoy pushing code that makes a real difference.
+            - paragraph [ref=e245]: I specialize in React and Next.js on the frontend, Django and Python on the backend, and Docker and GCP for deployment. Whether it's a university research platform, a real estate app, or a microservice architecture, I focus on clean code, fast delivery, and long-term maintainability.
+          - generic [ref=e246]:
+            - paragraph [ref=e247]: Technologies I work with
+            - generic [ref=e250]:
+              - generic [ref=e251]:
+                - generic [ref=e252]: React
+                - generic [ref=e253]: Next.js
+                - generic [ref=e254]: Python
+                - generic [ref=e255]: Django
+                - generic [ref=e256]: Docker
+                - generic [ref=e257]: Kubernetes
+                - generic [ref=e258]: GCP
+                - generic [ref=e259]: Node.js
+                - generic [ref=e260]: Java
+                - generic [ref=e261]: Tailwind
+                - generic [ref=e262]: PostgreSQL
+                - generic [ref=e263]: Git
+              - generic [ref=e264]:
+                - generic [ref=e265]: React
+                - generic [ref=e266]: Next.js
+                - generic [ref=e267]: Python
+                - generic [ref=e268]: Django
+                - generic [ref=e269]: Docker
+                - generic [ref=e270]: Kubernetes
+                - generic [ref=e271]: GCP
+                - generic [ref=e272]: Node.js
+                - generic [ref=e273]: Java
+                - generic [ref=e274]: Tailwind
+                - generic [ref=e275]: PostgreSQL
+                - generic [ref=e276]: Git
+          - generic [ref=e279]:
+            - generic [ref=e280]: 🎓
+            - generic [ref=e281]:
+              - heading "B.S. Computer Science — ESPOL" [level=3] [ref=e282]
+              - paragraph [ref=e283]: "Thesis: Modified YOLOv4 to learn from the thermal channel for enhanced low-light object detection."
+              - link "Watch Thesis Demo →" [ref=e284] [cursor=pointer]:
+                - /url: https://www.youtube.com/watch?v=P-S0G-PbAjQ
+          - link "Connect on LinkedIn →" [ref=e286] [cursor=pointer]:
+            - /url: https://www.linkedin.com/in/axelauza/
+        - generic [ref=e287]:
+          - generic [ref=e288]:
+            - heading "Get In Touch" [level=2] [ref=e289]
+            - paragraph [ref=e290]: I'm currently open to new opportunities
+          - generic [ref=e291]:
+            - paragraph [ref=e292]: Whether you have a question, a project idea, or just want to say hi, my inbox is always open.
+            - link "Email Axel" [ref=e293] [cursor=pointer]:
+              - /url: mailto:axelauza97@hotmail.com
+    - contentinfo [ref=e294]:
+      - generic [ref=e296]:
+        - paragraph [ref=e297]: Built with Next.js & Tailwind CSS
+        - navigation "Footer navigation" [ref=e298]:
+          - link "GitHub" [ref=e299] [cursor=pointer]:
+            - /url: https://github.com/axelauza97
+          - link "LinkedIn" [ref=e300] [cursor=pointer]:
+            - /url: https://www.linkedin.com/in/axelauza/
+          - link "Email" [ref=e301] [cursor=pointer]:
+            - /url: mailto:axelauza97@hotmail.com
+          - link "Privacy" [ref=e302] [cursor=pointer]:
+            - /url: /privacy
+  - alert [ref=e303]
+```

@@ -33,3 +33,25 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Pipeline reports (generated)
+.pipeline/reports/*.md
+.pipeline/reports/*.json
+.pipeline/reports/*.txt
+!.pipeline/reports/.gitkeep
+
+# Visual QA screenshots (generated)
+tests/visual/screenshots/*.png
+!tests/visual/screenshots/.gitkeep
+
+# Codex raw output
+.pipeline/reports/*-raw.md
+
+all-files-script.sh
+REDESIGN_GUIDE.md
+.pipeline
+.codex
+.claude
+
+# Playwright MCP session files
+.playwright-mcp/
