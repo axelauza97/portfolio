@@ -9,6 +9,33 @@ export default function Privacy() {
           name="description"
           content="Privacy policy for Axel Auza's portfolio website."
         />
+        <meta property="og:title" content="Privacy Policy — Axel Auza" />
+        <meta
+          property="og:description"
+          content="Privacy policy for Axel Auza's portfolio website."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://axelauza.com/privacy" />
+        <meta
+          property="og:image"
+          content="https://axelauza.com/og-image.png"
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta
+          property="og:image:alt"
+          content="Axel Auza portfolio preview card"
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Privacy Policy — Axel Auza" />
+        <meta
+          name="twitter:description"
+          content="Privacy policy for Axel Auza's portfolio website."
+        />
+        <meta
+          name="twitter:image"
+          content="https://axelauza.com/og-image.png"
+        />
         <link rel="canonical" href="https://axelauza.com/privacy" />
       </Head>
 

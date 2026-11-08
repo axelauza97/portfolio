@@ -20,11 +20,21 @@ function ExperiencePage(props) {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://axelauza.com/experience" />
         <meta property="og:image" content="https://axelauza.com/og-image.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta
+          property="og:image:alt"
+          content="Axel Auza portfolio preview card"
+        />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Experience — Axel Auza" />
         <meta
           name="twitter:description"
           content="Professional experience, delivery highlights, and technology stack used by Axel Auza."
+        />
+        <meta
+          name="twitter:image"
+          content="https://axelauza.com/og-image.png"
         />
         <link rel="canonical" href="https://axelauza.com/experience" />
       </Head>
