@@ -45,11 +45,21 @@ function AboutPage() {
         <meta property="og:type" content="profile" />
         <meta property="og:url" content="https://axelauza.com/about" />
         <meta property="og:image" content="https://axelauza.com/og-image.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta
+          property="og:image:alt"
+          content="Axel Auza portfolio preview card"
+        />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="About Axel Auza" />
         <meta
           name="twitter:description"
           content="Background, education, thesis work, and contact details for Axel Auza."
+        />
+        <meta
+          name="twitter:image"
+          content="https://axelauza.com/og-image.png"
         />
         <link rel="canonical" href="https://axelauza.com/about" />
       </Head>
